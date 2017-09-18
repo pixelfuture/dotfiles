@@ -12,6 +12,7 @@
 ├── nerdtree
 ├── nerdtree-git-plugin
 ├── rainbow_parentheses.vim
+├── supertab
 ├── tern_for_vim
 ├── tmuxline.vim
 ├── ultisnips
@@ -33,4 +34,4 @@
 ├── vim-unimpaired
 └── vim-vinegar
 
-33 directories, 0 files
+34 directories, 0 files

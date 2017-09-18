@@ -210,14 +210,6 @@ endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
-" make YCM compatible with UtiSnips
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-let g:UltiSnipsEditSplit = 'vertical'
-let g:UltiSnipsSnippetsDir='/Users/Rodrigo/.vim/mysnippets'
-let g:UltiSnipsSnippetDirectories=["mysnippets"]
-
 " Ack config
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
@@ -253,3 +245,17 @@ let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 " Change cursor in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetsDir='/Users/Rodrigo/.vim/mysnippets'
+let g:UltiSnipsSnippetDirectories=["mysnippets"]
+
