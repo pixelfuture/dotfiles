@@ -1,0 +1,36 @@
+.
+├── CursorLineCurrentWindow
+├── YankRing.vim
+├── YouCompleteMe
+├── ack.vim
+├── ale
+├── auto-pairs
+├── command-t
+├── incsearch-easymotion.vim
+├── incsearch-fuzzy.vim
+├── incsearch.vim
+├── nerdtree
+├── nerdtree-git-plugin
+├── rainbow_parentheses.vim
+├── tern_for_vim
+├── tmuxline.vim
+├── ultisnips
+├── vim-airline
+├── vim-airline-themes
+├── vim-autotag
+├── vim-commentary
+├── vim-easymotion
+├── vim-fugitive
+├── vim-game-code-break
+├── vim-gitgutter
+├── vim-javascript
+├── vim-jsx-improve
+├── vim-localvimrc
+├── vim-repeat
+├── vim-search-pulse
+├── vim-sensible
+├── vim-surround
+├── vim-unimpaired
+└── vim-vinegar
+
+33 directories, 0 files
