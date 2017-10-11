@@ -1,5 +1,4 @@
-.
-├── CursorLineCurrentWindow
+./.vim/bundle
 ├── YankRing.vim
 ├── YouCompleteMe
 ├── ack.vim
@@ -9,24 +8,19 @@
 ├── incsearch-easymotion.vim
 ├── incsearch-fuzzy.vim
 ├── incsearch.vim
-├── nerdtree
-├── nerdtree-git-plugin
-├── rainbow_parentheses.vim
 ├── supertab
 ├── tern_for_vim
 ├── tmuxline.vim
 ├── ultisnips
-├── vim-airline
-├── vim-airline-themes
 ├── vim-autotag
 ├── vim-commentary
 ├── vim-easymotion
 ├── vim-fugitive
-├── vim-game-code-break
 ├── vim-gitgutter
-├── vim-javascript
 ├── vim-jsx-improve
+├── vim-line-no-indicator
 ├── vim-localvimrc
+├── vim-projectionist
 ├── vim-repeat
 ├── vim-search-pulse
 ├── vim-sensible
@@ -34,4 +28,4 @@
 ├── vim-unimpaired
 └── vim-vinegar
 
-34 directories, 0 files
+28 directories, 0 files
