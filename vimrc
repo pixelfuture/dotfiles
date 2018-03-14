@@ -1,237 +1,183 @@
-" Use pathogen to add plugins - TODO: Vim 8 does this already
-execute pathogen#infect()
-packloadall                           " Load packages in pack directory
+filetype plugin indent on
+syntax on
 
-set termguicolors                     " use GUI colors for terminal – 24bit true color (16 million)
-colorscheme neodark                   " set neodark as the theme
-let g:neodark#background = '#202020'  " make the background darker
+" packadd minpac
+" call minpac#init()
 
-set nobackup                          " do not backup
-set nowritebackup                     " do not need backup files
-set noswapfile                        " do not want swap files everywhere
+" call minpac#add('airblade/vim-gitgutter')
+" call minpac#add('docunext/closetag.vim')
+" call minpac#add('haya14busa/is.vim')
+" call minpac#add('jiangmiao/auto-pairs')
+" call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
+" call minpac#add('junegunn/fzf.vim')
+" call minpac#add('justinmk/vim-dirvish')
+" call minpac#add('k-takata/minpac', {'type': 'opt'})
+" call minpac#add('marijnh/tern_for_vim')
+" call minpac#add('mxw/vim-jsx')
+" call minpac#add('pangloss/vim-javascript')
+" call minpac#add('tpope/vim-commentary')
+" call minpac#add('tpope/vim-eunuch')
+" call minpac#add('tpope/vim-fugitive')
+" call minpac#add('tpope/vim-repeat')
+" call minpac#add('tpope/vim-surround')
+" call minpac#add('tpope/vim-unimpaired')
+" call minpac#add('w0rp/ale')
+" call minpac#add('Shougo/deoplete.nvim')
+" call minpac#add('styled-components/vim-styled-components')
+" if !has('nvim')
+"   call minpac#add('roxma/nvim-yarp')
+"   call minpac#add('roxma/vim-hug-neovim-rpc')
+" endif
+" call minpac#add('carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' })
 
-set showcmd	                          " display incomplete commands
-set laststatus=2                      " always show status line in all windows
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path=1 "file source complete the files from the buffer path instead of current directory
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+" tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
+autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
+command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
+command! PackClean packadd minpac | source $MYVIMRC | call minpac#clean()
+
+" Standard stuff
+set number                            " line numbers
+set relativenumber                    " relative line numbers
+set showcmd   	                      " display incomplete commands
+set laststatus=2                      " always show status line. all windows
 set belloff=all                       " Turn off the bell
-set fillchars="┃"                     " Replace ugly splits with this super long character
-
-set number                            " add line numbers
-set relativenumber                    " turn on relative numbers
-
+set fillchars="┃"                     " Replace ugly splits with this character
 set ignorecase                        " ignore case in a search pattern
-set smartcase                         " ignore case when pattern contains lowercase letters only
-set gdefault                          " substitute command updates all matches in a line and all if g flag is added
+set smartcase                         " ignore case if all lowercase pattern
+set gdefault                          " substitute flag 'g' on by default
 set showmatch                         " show matching bracket
+set incsearch                         " incrementally search
 set hlsearch                          " highlight all search pattern matches
 set wildmode=list:full                " list all matches and complete first match
-
-set hidden                            " allows me to change buffers even when buffers have not been saved
-set splitbelow                        " Split a window to the right by default
+set hidden                            " hide unsaved buffers
+set splitbelow                        " Split a window to the bottom by default
 set splitright                        " Split a window to the right by default
 set clipboard=unnamed                 " Copy to OS X clipboard
-
+set tabstop=2                         " show existing tab with 2 spaces width
+set shiftwidth=2                      " when editing with '>', use 2 spaces width
+set expandtab                         " On pressing tab, insert 2 spaces
 set lazyredraw                        " don’t update screen during macro playback
 set mouse=a                           " activate mouse
-set tags=./.tags;                     " I love tags
 set formatoptions=jn                  " format options. this will probably change
-set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
-
+" set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
 set wrap                              " wrap
 set textwidth=120                     " maximum allowed characters
 set breakindent                       " indent wrapped lines
 set breakindentopt=shift:2            " emphasize broken lines by indenting them
-set scrolloff=3                       " minimal number of screen lines to keep abover and below the cursor
+set scrolloff=3                       " 3 screen lines minimum above and below
+set nobackup                          " do not backup
+set nowritebackup                     " do not need backup files
+set noswapfile                        " do not want swap files everywhere
+set path=src/**                         " makes it easier to :find files
 
-set tabstop=2                         " show existing tab with 2 spaces width
-set shiftwidth=2                      " when editing with '>', use 2 spaces width
-set expandtab                         " On pressing tab, insert 2 spaces
+" wildignore
+set wildignore+=**/node_modules
+set wildignore+=**/lib
 
-if exists('+colorcolumn')
-  " Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
-  let &l:colorcolumn='+' . join(range(0, 254), ',+')
-endif
-
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" Use tab key to navigate between bracket pairs
-nnoremap <Tab> %
-vnoremap <Tab> %
-
-" jj or jk for escaping
-inoremap jj <ESC>
-inoremap jk <ESC>
-cnoremap jj <C-c>
-cnoremap jk <C-c>
-
-" Change leader key to <Space> and disable moving with space in normal mode
+" Change leader key to <Space>
 let mapleader = ' '
 
-" ale settings
-" let g:ale_lint_on_save = 1
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_set_highlights = 0
+" Custom Key Mapping
+inoremap jk <ESC>
+cnoremap jk <C-c>
+nnoremap H ^
+nnoremap L $
+nnoremap <Leader>; :
+nnoremap <Leader>q  :q<CR>
+nnoremap Q gq
+nnoremap <Tab> %
+vnoremap <Tab> %
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :so %<CR>
+nnoremap <Leader>ez :vsplit ~/.zshrc<CR>
+nnoremap Y y$
+nnoremap <Leader>s :update<CR>
+" search and replace
+nnoremap <Leader>/ :%s/\V/gc<Left><Left><Left>
+" console.log word underneath your cursor
+nnoremap <Leader>c yiwoconsole.log('<C-r>*', <C-r>*)<Esc>
+nnoremap <Leader>slc iimport React from 'react'<CR>import PropTypes from 'prop-types'<CR><CR>const propTypes = {}<CR>const defaultProps = {}<CR><CR>const MyComponent = () => (<CR><p></p><CR>)<CR><CR>MyComponent.propTypes = propTypes<CR>MyComponent.defaultProps = defaultProps<CR><CR>export default MyComponent<ESC>
+nnoremap <Leader>b :ls<CR>:b<Space>
 
-" set Prettier up to run on save
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = [
-\ 'eslint'
-\]
-let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --no-semi'
-
-
-" http://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
-" better jk normally but don't remap when it's called with a count
+" Better j/k navigation
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-" remap beginning and end of line to home row keys
-noremap H ^
-noremap L $
-
-" quick command mode
-nnoremap <Leader>; :
-
 " windows management
-nnoremap <Leader>ww <C-w>w " Go to next window
-nnoremap <Leader>wh <C-w>h " Move to window on the left
-nnoremap <Leader>wj <C-w>j " Move to window on the bottom
-nnoremap <Leader>wk <C-w>k " Move to window on the top
-nnoremap <Leader>wl <C-w>l " Move to window on the right
-nnoremap <Leader>wt <C-w><S-t> " Open window in a tab
+nnoremap <Leader>ww <C-w>w
+nnoremap <Leader>wh <C-w>h
+nnoremap <Leader>wj <C-w>j
+nnoremap <Leader>wk <C-w>k
+nnoremap <Leader>wl <C-w>l
+nnoremap <Leader>wt <C-w><S-t>
+nnoremap <Leader>wv <C-w>v
+nnoremap <Leader>ws <C-w>s
+nnoremap <Leader>w= <C-w>=
 
-" window resizing
-nnoremap <Leader>w= <C-w>= " Equal size window
-nnoremap <Leader>ws <C-w>s " Split window horizontally
-nnoremap <Leader>wv <C-w>v " Split window vertically
+" fzf mapping
+nnoremap <Leader>t :Files<CR>
+" nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>gst :GFiles?<CR>
+nnoremap <Leader>a :Rg<Space>
+nnoremap <Leader>f :Rg<Space><C-r><C-w><CR>
 
-" Buffer
-nnoremap <Leader>bp :bprevious<CR>
-nnoremap <Leader>bn :bnext<CR>
-nnoremap <Leader>bf :bfirst<CR>
-nnoremap <Leader>bl :blast<CR>
-nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>bk :bw<CR>
+" Use ripgrep to search for word in project
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --smart-case --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Remove trailing spaces on write
 autocmd BufWritePre * %s/\s\+$//e
-
-" Resize buffer windows when Vim is resized
-autocmd VimResized * execute "normal! \<c-w>="
-
-" Save file using leader
-nnoremap <Leader>s :w<CR>
-
-" Easy Motion configuration
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-map <Leader><Leader>f <Plug>(easymotion-overwin-f)
-
-" Turn on case insensitive feature
-" let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader><Leader>j <Plug>(easymotion-j)
-map <Leader><Leader>k <Plug>(easymotion-k)
-
-" use these mappings as default search and sometimes want to move cursor with
-" EasyMotion.
-" function! s:incsearch_config(...) abort
-"   return incsearch#util#deepextend(deepcopy({
-"   \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-"   \   'keymap': {
-"   \     "\<CR>": '<Over>(easymotion)'
-"   \   },
-"   \   'is_expr': 0
-"   \ }), get(a:, 1, {}))
-" endfunction
-
-" noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-" noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
-
-" Integrate pulse plugin with incsearch
-let g:vim_search_pulse_disable_auto_mappings = 1
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)<Plug>Pulse
-map N  <Plug>(incsearch-nohl-N)<Plug>Pulse
-map *  <Plug>(incsearch-nohl-*)<Plug>Pulse
-map #  <Plug>(incsearch-nohl-#)<Plug>Pulse
-map g* <Plug>(incsearch-nohl-g*)<Plug>Pulse
-map g# <Plug>(incsearch-nohl-g#)<Plug>Pulse
-
-" Pulses the first match after hitting the enter keyan
-autocmd! User IncSearchExecute
-autocmd User IncSearchExecute :call search_pulse#Pulse()
-
-" Easy Fuzzy Search with Easy Motion integration
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
-
-" Ack config
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>src<Left><Left><Left><Left><Space>
-
-let g:netrw_liststyle = 3 " Change style of netrw
-
-" CursorLineCurrentWindow
-set cursorline
-
-" gets current path
-cnoremap <expr> %%  getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" Easy quit
-nnoremap <Leader>q  :q<CR>
-
-" Open shell in vim
-map <Leader>' :shell<CR>
-
-" Edit vimrc
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
-
-" tern mapping
-nnoremap T :TernDef<CR>
-
-" Command-T
-let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-let g:CommandTWildIgnore=&wildignore . ",*/node_modules,*/coverage,*/dist,*/errorShots,*/bin,*/interfaces,*/server,*/build"
-set path+=src/**,tests/**
 
 " Change cursor in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" Let vim-jsx handle JSX in `.js` files.
+let g:jsx_ext_required = 0
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-let g:UltiSnipsEditSplit = 'vertical'
-let g:UltiSnipsSnippetsDir='/Users/Rodrigo/.vim/mysnippets'
-let g:UltiSnipsSnippetDirectories=["mysnippets"]
+" dirvish config
+let g:dirvish_mode = 2
+let g:dirvish_relative_paths = 1
 
-let g:powerline_left_separator = "\uE0B0"
-let g:powerline_right_separator = "\uE0B2"
-let g:powerline_branch = "\uE0A0"
-let g:spacer = " "
+" set Prettier up to run on save
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier', 'eslint']
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --no-semi --print-width 80'
 
+" italic comments
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
+
+" Status Line
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
 
@@ -244,40 +190,31 @@ function! LinterStatus() abort
     \   all_errors
     \)
 endfunction
-
-"  right separator
-"  left separator
-" green     #84B97C
-" blue      #639EE4
-" yellow    #D4B261
-" red       #DC657D
-" purple    #B888E2
-
+let g:spacer = " "
+let g:powerline_branch = "\uE0A0"
 set statusline =
-set statusline+=\ %n%{g:spacer}
-set statusline+=%#LineNr#
-set statusline+=
-set statusline+=%#VertSplit#
-set statusline+=%{g:spacer}
-set statusline+=%f
+set statusline+=%4*\ %l
+set statusline+=%2*\ %f
 set statusline+=\%m
 set statusline+=%{g:spacer}
 set statusline+=%=
-" set statusline+=%y
-set statusline+=%{LineNoIndicator()}
 set statusline+=%{g:spacer}
-set statusline+=%{LinterStatus()}
+set statusline+=%3*%{LinterStatus()}
 set statusline+=%{g:spacer}
-set statusline+=%3*%{empty(fugitive#head())?'':g:spacer}
-set statusline+=%3*%{empty(fugitive#head())?'':g:powerline_branch}
-set statusline+=%3*%{empty(fugitive#head())?'':fugitive#head()}
-set statusline+=%3*%{empty(fugitive#head())?'':g:spacer}
+set statusline+=%1*%{empty(fugitive#head())?'':g:spacer}
+set statusline+=%1*%{empty(fugitive#head())?'':g:powerline_branch}
+set statusline+=%1*%{empty(fugitive#head())?'':fugitive#head()}
+set statusline+=%1*%{empty(fugitive#head())?'':g:spacer}
+set statusline+=%4*\ %n
+set statusline+=%{g:spacer}
 
-" Default cursor line color
-hi CursorLine guibg=#2B2B2B
-" Change CursorLine Color when in insert mode
-autocmd InsertEnter * highlight CursorLine guibg=#1e2b1e
-" Revert CursorLine Color back when in normal mode
-autocmd InsertLeave * highlight CursorLine guibg=#2B2B2B
+hi User1 guifg=#CCCCCC guibg=#333333
+hi User2 guifg=#D4B261
+hi User3 guifg=#DC657D
+hi User4 guifg=#639EE4
+hi User5 guifg=#202020 guibg=#333333
 
+let g:completor_node_binary = '/usr/local/opt/node@6/bin/node'
+
+runtime macros/matchit.vim
 
