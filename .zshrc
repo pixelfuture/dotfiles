@@ -1,13 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Fix Font Issues
+export LANG=en_US.UTF-8
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Rodrigo/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=agnoster
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,11 +57,15 @@ ZSH_THEME=agnoster
 
 source $ZSH/oh-my-zsh.sh
 
+# Going with Pure as the theme
+autoload -U promptinit; promptinit
+prompt pure
+
 # let Vim work
 stty -ixon -ixoff
 
 # User configuration
-plugins=(git battery)
+# plugins=(git battery)
 # aliases
 alias glp='git log --pretty=format:"%h %s" --graph'
 alias gls='git log --pretty=oneline --abbrev-commit'
@@ -68,6 +75,8 @@ alias ys='yarn start'
 alias lambdas='cd ~/Documents/lambdas && ls -la'
 alias emm='cd ~/Documents/enrollme-web-client'
 alias adm='cd ~/Documents/admin-web-client'
+alias hui='cd ~/Documents/hixme-ui'
+alias app='cd ~/Documents/app-ui'
 alias hixmelogin='~/.hixmelogin'
 alias gclean='rm package-lock.json && npm i'
 alias l1='ls -1'
@@ -75,6 +84,34 @@ alias ll='ls -al'
 alias l='ls -a'
 alias la='ls -AF'
 alias theme='source ~/.zshrc'
+alias lcb='lerna clean && lerna bootstrap'
+alias lb='lerna bootstrap'
+alias axrmin='aws s3 rm s3://hixme-batch-process-datasets-315363678205-us-west-2/input/ --exclude "" --include ".json" --recursive'
+alias axrmup='aws s3 rm s3://hixme-batch-process-datasets-315363678205-us-west-2/output/ --exclude "" --include ".json" --recursive'
+alias axupload='aws s3 cp . s3://hixme-batch-process-datasets-315363678205-us-west-2/input/ --acl bucket-owner-full-control --recursive'
+alias axdownload='aws s3 cp s3://hixme-batch-process-datasets-315363678205-us-west-2/output/ . --recursive'
+alias axstatus='print "Inbox";aws s3 ls s3://hixme-batch-process-datasets-315363678205-us-west-2/input/ --summarize | Rg Total\ Objects;print "Outbox";aws s3 ls s3://hixme-batch-process-datasets-315363678205-us-west-2/output/ --summarize | Rg Total\ Objects;'
+
+# vimstart - by Billy Montgomery
+function vimstart() {
+  PURPLE="\033[0;35m"
+  ORANGE="\033[0;33m"
+
+  echo $ORANGE
+  TOTAL=0
+  echo 'VIMSTART'
+  echo '--------'
+  for i in {1..10}
+  do
+    vim -c\ q --startuptime /tmp/vim.log
+    VAL=$(tail -n1 /tmp/vim.log | awk '{print $1}')
+    echo $VAL
+    TOTAL=$(echo $VAL | awk '{print $1+"'$TOTAL'"}')
+  done
+
+  echo $PURPLE
+  echo $TOTAL | awk '{print $1/10 " Average \n"}'
+}
 
 # application aliases
 alias v='vim'
@@ -82,6 +119,10 @@ alias safari="open -a safari"
 alias chrome="open -a google\ chrome"
 alias textedit='open -a TextEdit'
 alias slack="open -a '/Applications/Slack.app'"
+alias t="todo.sh"
+
+# other
+alias count='ls | wc -l'
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -89,9 +130,40 @@ alias slack="open -a '/Applications/Slack.app'"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
+bindkey '^a' beginning-of-line
+bindkey '^b' backward-char
+bindkey '^e' end-of-line
+bindkey '^f' forward-char
+bindkey '^h' backward-delete-char
+bindkey '^k' kill-line
+bindkey '^u' kill-whole-line
+bindkey '^w' backward-kill-word
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files '
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export PATH="/usr/local/opt/node@6/bin:$PATH"
+
+function _sys_notify() {
+      local notification_command="display notification \"$2\" with title \"$1\""
+          osascript -e "$notification_command"
+
+}
+function _axene_is_ready() {
+  local results=$(aws s3 ls s3://hixme-batch-process-datasets-315363678205-us-west-2/input/ --summarize | Rg Total\ Objects)
+  if [ $results = "Total Objects: 1" ]; then
+    print "Done!"
+    osascript -e 'display notification "Axene is complete!" with title "Axene"'
+  else
+    print "Still Going";print "$results";sleep 30;_axene_is_ready
+  fi
+}
+alias sys-notify="_sys_notify $1 $2"
+alias check-axene-status="_axene_is_ready"
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
