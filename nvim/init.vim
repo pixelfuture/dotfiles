@@ -153,6 +153,7 @@ nnoremap <Leader>ev :tabe ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>r :so $MYVIMRC<CR>
 nnoremap <Leader>ez :tabe ~/.zhrc<CR>
 nnoremap <Leader>en :vsplit ~/notes.txt<CR>
+nnoremap <Leader>es :CocCommand snippets.editSnippets<CR>
 nnoremap Y y$
 nnoremap <Leader>s :update<CR>
 nnoremap <Leader>/ :<C-U>vimgrep /\c/ **<S-Left><S-Left><Right>
@@ -267,7 +268,10 @@ highlight GitGutterDelete guifg=#ff2222 guibg=<X> ctermfg=Red
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " tab for autocompletion
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
 " Find references
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
