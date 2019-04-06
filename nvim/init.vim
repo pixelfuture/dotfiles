@@ -69,10 +69,12 @@ function! PackInit() abort
   call minpac#add('iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  })
   " Better Comments
   call minpac#add('suy/vim-context-commentstring')
-  " Save previously yanks. Cycle through using <C-p>
-  call minpac#add('vim-scripts/YankRing.vim')
   " Automatically refresh files edited from other programs
   call minpac#add('djoshea/vim-autoread')
+  " Tagbar 
+  call minpac#add('liuchengxu/vista.vim')
+  " Better grep
+  call minpac#add('mhinz/vim-grepper')
   " Themes
   call minpac#add('haishanh/night-owl.vim')
   " call minpac#add('morhetz/gruvbox')
@@ -354,3 +356,12 @@ nnoremap <Leader>gdl :diffget //3<CR>
 
 " Github Enterprise settings
 let g:github_enterprise_urls = ['https://github.cms.gov']
+
+" Grepper config
+let g:grepper = {}
+let g:grepper.tools = ["rg"]
+runtime autoload/grepper.vim
+let g:grepper.jump = 1
+nnoremap <leader>gr :GrepperRg<Space>
+nnoremap gr :Grepper -cword -noprompt<CR>
+xmap gr <plug>(GrepperOperator)
