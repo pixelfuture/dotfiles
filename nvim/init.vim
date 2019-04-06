@@ -226,13 +226,15 @@ endif
 " Ale settings
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['eslint', 'prettier']
-let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_set_signs = 0
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_delay = 0
 let g:ale_virtualtext_cursor = 1 "neovim virtualtext when it is released
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_fix_on_save = 1
+" let g:ale_set_signs = 0
+nnoremap <Leader>l <Plug>(ale_lint)
 
 au VimEnter,BufEnter,ColorScheme *
       \ exec "hi! ALEInfoLine
