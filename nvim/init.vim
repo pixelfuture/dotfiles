@@ -93,7 +93,6 @@ syntax enable
 set termguicolors
 colorscheme night-owl
 " colorscheme plastic
-" colorscheme plastic
 
 " Misc
 set number                      " number
