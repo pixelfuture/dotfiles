@@ -1,3 +1,6 @@
 [submodule "nvim/pack/minpac/opt/minpac"]
 	path = nvim/pack/minpac/opt/minpac
 	url = https://github.com/k-takata/minpac.git
+[submodule "nvim/bundle/dracula"]
+	path = nvim/bundle/dracula
+	url = git@github.com:dracula/vim.git
