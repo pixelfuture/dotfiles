@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/rodrigomunoz/Projects/qpp-ui'
+let g:netrw_dirhist_0='/Users/rodrigomunoz/Projects'
+let g:netrw_dirhist_9='/Users/rodrigomunoz'
+let g:netrw_dirhist_8='/Users/rodrigomunoz/dotfiles/.vim/bundle'
+let g:netrw_dirhist_7='/Users/rodrigomunoz/dotfiles/.vim'
+let g:netrw_dirhist_6='/Users/rodrigomunoz/Projects/qpp-ui/src/components/Card'
+let g:netrw_dirhist_5='/Users/rodrigomunoz/Projects/qpp-ui/src/components/FeaturePageHeader'
+let g:netrw_dirhist_4='/Users/rodrigomunoz/Projects/qpp-ui/src/components'
+let g:netrw_dirhist_3='/Users/rodrigomunoz/Projects/qpp-ui/src/components/Dialog'
+let g:netrw_dirhist_2='/Users/rodrigomunoz/Projects/qpp-ui/src/components'
