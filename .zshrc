@@ -32,7 +32,7 @@ ZSH_THEME=""
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -65,7 +65,7 @@ prompt pure
 stty -ixon -ixoff
 
 # User configuration
-# plugins=(git battery)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions)
 # aliases
 alias glp='git log --pretty=format:"%h %s" --graph'
 alias gls='git log --pretty=oneline --abbrev-commit'
@@ -92,34 +92,18 @@ alias axupload='aws s3 cp . s3://hixme-batch-process-datasets-315363678205-us-we
 alias axdownload='aws s3 cp s3://hixme-batch-process-datasets-315363678205-us-west-2/output/ . --recursive'
 alias axstatus='print "Inbox";aws s3 ls s3://hixme-batch-process-datasets-315363678205-us-west-2/input/ --summarize | Rg Total\ Objects;print "Outbox";aws s3 ls s3://hixme-batch-process-datasets-315363678205-us-west-2/output/ --summarize | Rg Total\ Objects;'
 
-# vimstart - by Billy Montgomery
-function vimstart() {
-  PURPLE="\033[0;35m"
-  ORANGE="\033[0;33m"
-
-  echo $ORANGE
-  TOTAL=0
-  echo 'VIMSTART'
-  echo '--------'
-  for i in {1..10}
-  do
-    vim -c\ q --startuptime /tmp/vim.log
-    VAL=$(tail -n1 /tmp/vim.log | awk '{print $1}')
-    echo $VAL
-    TOTAL=$(echo $VAL | awk '{print $1+"'$TOTAL'"}')
-  done
-
-  echo $PURPLE
-  echo $TOTAL | awk '{print $1/10 " Average \n"}'
-}
-
 # application aliases
-alias v='vim'
+alias v="nvim"
+alias vim="nvim"
 alias safari="open -a safari"
 alias chrome="open -a google\ chrome"
 alias textedit='open -a TextEdit'
 alias slack="open -a '/Applications/Slack.app'"
 alias t="todo.sh"
+alias ui="cd ~/Projects/qpp-ui"
+alias review="cd ~/Projects/qpp-ui-review"
+alias pairing="cd ~/Projects/qpp-ui-pairing"
+alias style="cd ~/Projects/qpp-style"
 
 # other
 alias count='ls | wc -l'
@@ -165,5 +149,7 @@ function _axene_is_ready() {
 alias sys-notify="_sys_notify $1 $2"
 alias check-axene-status="_axene_is_ready"
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
