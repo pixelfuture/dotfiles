@@ -124,7 +124,7 @@ if !exists('g:vscode')
   set splitbelow                  " New window below split
   set splitright                  " New window right of split
   set shortmess+=I                " No startup splash screen
-  set pumblend=20                 " pumblend transparency settings
+  set pumblend=20                 " pumblend transparency settings (Neovim)
   "set lazyredraw                  " Don't redraw the screen during batch execution
 
   " Indent settings

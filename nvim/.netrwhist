@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/rodrigomunoz/dotfiles/.vim'
+let g:netrw_dirhist_1='/Users/rodrigomunoz/dotfiles'
 let g:netrw_dirhist_0='/Users/rodrigomunoz/Hixme/admin-web-client'
 let g:netrw_dirhist_9='/Users/rodrigomunoz/my_site'
 let g:netrw_dirhist_8='/Users/rodrigomunoz/.scripts'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='/Users/rodrigomunoz/Projects/qpp-ui/src/routes/Participat
 let g:netrw_dirhist_5='/Users/rodrigomunoz/Projects/qpp-ui/src'
 let g:netrw_dirhist_4='/Users/rodrigomunoz/Projects/qpp-ui/src/routes'
 let g:netrw_dirhist_3='/Users/rodrigomunoz/Projects/qpp-ui/src/routes/User/MyTestData'
-let g:netrw_dirhist_2='/Users/rodrigomunoz/Projects/qpp-ui/src/routes/User'
-let g:netrw_dirhist_1='/Users/rodrigomunoz/Projects/qpp-ui/src/routes'

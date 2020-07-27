@@ -4,3 +4,75 @@
 [submodule "nvim/bundle/dracula"]
 	path = nvim/bundle/dracula
 	url = git@github.com:dracula/vim.git
+[submodule ".vim/bundle/vim-dirvish"]
+	path = .vim/bundle/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish.git
+[submodule ".vim/pack/vendor/vim-highlightedyank"]
+	path = .vim/pack/vendor/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank.git
+[submodule ".vim/pack/vendor/start/night-owl.vim"]
+	path = .vim/pack/vendor/start/night-owl.vim
+	url = https://github.com/haishanh/night-owl.vim.git
+[submodule ".vim/pack/vendor/start/vim-fugitive"]
+	path = .vim/pack/vendor/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/pack/vendor/start/fzf.vim"]
+	path = .vim/pack/vendor/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".vim/pack/bundle/opt/vim-eunuch"]
+	path = .vim/pack/bundle/opt/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule ".vim/pack/bundle/opt/vim-rhubarb"]
+	path = .vim/pack/bundle/opt/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
+[submodule ".vim/pack/bundle/opt/vim-unimpaired"]
+	path = .vim/pack/bundle/opt/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".vim/pack/bundle/opt/vim-commentary"]
+	path = .vim/pack/bundle/opt/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule ".vim/pack/bundle/opt/vim-javascript"]
+	path = .vim/pack/bundle/opt/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/pack/bundle/opt/vim-jsx-pretty"]
+	path = .vim/pack/bundle/opt/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule ".vim/pack/bundle/opt/vim-graphql"]
+	path = .vim/pack/bundle/opt/vim-graphql
+	url = https://github.com/jparise/vim-graphql.git
+[submodule ".vim/pack/bundle/opt/Jenkinsfile-vim-syntax"]
+	path = .vim/pack/bundle/opt/Jenkinsfile-vim-syntax
+	url = https://github.com/martinda/Jenkinsfile-vim-syntax.git
+[submodule ".vim/pack/bundle/opt/vim-styled-components"]
+	path = .vim/pack/bundle/opt/vim-styled-components
+	url = https://github.com/styled-components/vim-styled-components.git
+[submodule ".vim/pack/bundle/opt/auto-pairs"]
+	path = .vim/pack/bundle/opt/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule ".vim/pack/bundle/opt/vim-context-commentstring"]
+	path = .vim/pack/bundle/opt/vim-context-commentstring
+	url = https://github.com/suy/vim-context-commentstring.git
+[submodule ".vim/pack/bundle/opt/indentLine"]
+	path = .vim/pack/bundle/opt/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule ".vim/pack/bundle/opt/vim-pug"]
+	path = .vim/pack/bundle/opt/vim-pug
+	url = https://github.com/digitaltoad/vim-pug.git
+[submodule ".vim/pack/bundle/opt/vim-gitgutter"]
+	path = .vim/pack/bundle/opt/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/pack/bundle/opt/vim-surround"]
+	path = .vim/pack/bundle/opt/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/pack/bundle/opt/vim-sneak"]
+	path = .vim/pack/bundle/opt/vim-sneak
+	url = https://github.com/justinmk/vim-sneak.git
+[submodule ".vim/pack/bundle/opt/vim-asterisk"]
+	path = .vim/pack/bundle/opt/vim-asterisk
+	url = https://github.com/haya14busa/vim-asterisk.git
+[submodule ".vim/pack/bundle/opt/is.vim"]
+	path = .vim/pack/bundle/opt/is.vim
+	url = https://github.com/haya14busa/is.vim.git
+[submodule ".vim/pack/bundle/opt/night-owl.vim"]
+	path = .vim/pack/bundle/opt/night-owl.vim
+	url = https://github.com/haishanh/night-owl.vim.git

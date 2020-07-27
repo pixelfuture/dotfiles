@@ -1,114 +1,74 @@
-syntax on                                              " syntax highlighting
-set termguicolors                                      " 24-bit color
-"colorscheme night-owl
-
-set clipboard=unnamed                                  " Yank to system clipboard
-set hidden                                             " Allow hiding unsaved buffers
-set mouse=a                                            " Mouse
-set ignorecase                                         " Ignore case in search patterns
-set smartcase                                          " Smart case in searc patterns
-set splitbelow                                         " New window below split
-set splitright                                         " New window right of split
-set textwidth=80                                       " Wrap after 80 characters
-set scrolloff=1                                        " Minimal number of screen lines to keep above and below the cursor.
-set wildmenu                                           " Command completion
-set incsearch                                          " Search
-set autoread                                           " Autoreload when file changes outside of vim
-set backspace=indent,eol,start                         " Enable backspace
-set ruler                                              " Show line and column number of cursor position
-
-" Mappings
-nnoremap Q gq
-nnoremap H ^
-nnoremap L $
-nnoremap Y y$
-
-" Leader key mappings
 let mapleader = ' '
-nnoremap <Leader>; :
-nnoremap <Leader>q :quit<CR>
-nnoremap <Leader>s :update<CR>
-nnoremap <Leader>r :source $MYVIMRC<CR>
-nnoremap <Leader>ev :tabe ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>b :<C-U>buffers<CR>:buffer<Space>
 
-" Better j/k navigation
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j') 
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+" Add fzf as runtime path
+if executable('fzf')
+  set rtp+=/usr/local/opt/fzf
+endif
 
-" Indent settings
-filetype plugin indent on                               " Enable loading indent file
-set expandtab                                           " Spaces instead of tabs
-set tabstop=2 shiftwidth=2 softtabstop=2                " 2 spaces
+if &loadplugins
+  " Navigation
+  packadd! fzf.vim
+  packadd! vim-asterisk
+  packadd! vim-dirvish
+  packadd! vim-eunuch
+  packadd! vim-sneak
+  packadd! vim-unimpaired
 
-" Backup and history settings
-set backup                                              " Enable backup
-set undofile                                            " Enable persistent undo
-set undodir=~/.local/share/nvim/undo//
-set directory=~/.local/share/nvim/swap//
-set backupdir=~/.local/share/nvim/backup//
+  " Git
+  packadd! vim-fugitive
+  packadd! vim-gitgutter
 
-" Wildignore settings
-set wildignore+=*/node_modules/*,package-lock.json      " ignore node_modules directory
+  " Comments gcc
+  packadd! vim-commentary
+  packadd! vim-context-commentstring
 
-" Options for file search with gf/:find
-set path-=/usr/include                                  " Let the C/C++ filetypes let that
-set path+=**                                            " Search current directory's whole tree
+  " Syntax highlighting
+  packadd! vim-javascript
+  packadd! vim-jsx-pretty
+  packadd! vim-graphql
+  packadd! vim-pug
+  packadd! vim-styled-components
+  packadd! Jenkinsfile-vim-syntax
 
-" Windows management
-nnoremap <Leader>ww <C-w>w
-nnoremap <Leader>wh <C-w>h
-nnoremap <Leader>wj <C-w>j
-nnoremap <Leader>wk <C-w>k
-nnoremap <Leader>wl <C-w>l
-nnoremap <Leader>w= <C-w>=
-nnoremap <Leader>wt <C-w><S-t>
-nnoremap <Leader>wv <C-w>v
-nnoremap <Leader>ws <C-w>s
-tnoremap <M-h> <C-\><C-n><C-w>h
-tnoremap <M-j> <C-\><C-n><C-w>j
-tnoremap <M-k> <C-\><C-n><C-w>k
-tnoremap <M-l> <C-\><C-n><C-w>l
+  " Enhancements
+  packadd! vim-highlightedyank
+  packadd! auto-pairs
+  packadd! indentLine
+  packadd! vim-surround
+  packadd! is.vim
 
-" Folds
-set foldmethod=syntax " syntax highlighting specifies folds
-set foldlevelstart=99 " start file with all folds open
+  " Adds :Gbrowse
+  packadd! vim-rhubarb
 
-augroup status
-  autocmd!
-  autocmd WinEnter * setlocal statusline=%!ActiveStatus()
-  autocmd WinLeave * setlocal statusline=%!InActiveStatus()
-augroup END
+  " Theme
+  packadd! night-owl.vim
+endif
 
-set statusline=%!ActiveStatus()
-function! ActiveStatus() abort
-  let statusline=""
-  let statusline.="%4*\ %n"
-  " let statusline.="%{fugitive#head()!=''?'\ \ '.fugitive#head().'\ ':''}"
-  let statusline.="%0*"
-  let statusline.="%0*\ %f"
-  let statusline.="%2*\ %m" 
-  let statusline.="%0*%="
-  " let statusline.="%{LinterStatus()}"
-  let statusline.="%3*%y\ "
-  let statusline.="%l:%c:%L"
+" Automatic, language-dependent indentation, syntax coloring and other
+" functionality.
+"
+" Must come *after* the `:packadd!` calls above otherwise the contents of
+" package "ftdetect" directories won't be evaluated.
+filetype plugin indent on
+syntax on
+if has('termguicolors')
+  set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
+endif
 
-  return statusline
-endfunction
+colorscheme night-owl
 
-" statusline inactive
-function! InActiveStatus() abort
-  let statusline=""
-  let statusline.=" %n"
-  " let statusline.="%{fugitive#head()!=''?'\ \ '.fugitive#head().'\ ':''}"
-  let statusline.=" "
-  let statusline.=" %f"
-  let statusline.=" %m" 
-  let statusline.="%="
-  " let statusline.="%{LinterStatus()}"
-  let statusline.="%y "
-  let statusline.="%l:%c:%L"
+" Color Overrides
+hi jsTemplateString  guifg=#addb67 guibg=NONE gui=NONE
+hi xmlAttrib         guifg=#addb67 guibg=NONE gui=italic
+hi clear TabLine
+hi clear TabLineFill
+hi link TabLineFill CursorLineNr
+hi link TabLine CursorLineNr
 
-  return statusline
-endfunction
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
 
+" TODO
+" 1. Set Jenkinsfile to groovy ' set ft=groovy' and remove Jenkins-vim-syntax
+" 2. Fix pug syntax highlighting
