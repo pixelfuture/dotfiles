@@ -82,3 +82,9 @@
 [submodule ".vim/pack/bundle/opt/vim-fugitive"]
 	path = .vim/pack/bundle/opt/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/pack/bundle/opt/completion-nvim"]
+	path = .vim/pack/bundle/opt/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim.git
+[submodule ".vim/pack/bundle/opt/nvim-lsp"]
+	path = .vim/pack/bundle/opt/nvim-lsp
+	url = https://github.com/neovim/nvim-lsp.git

@@ -35,6 +35,12 @@ if &loadplugins
     packadd! nvim-treesitter
   endif
 
+  " Treesitter completion for nvim
+  if has('nvim')
+    " packadd! completion-nvim
+    " packadd! nvim-lsp
+  endif
+
   " Enhancements
   packadd! vim-highlightedyank
   packadd! auto-pairs
