@@ -76,3 +76,9 @@
 [submodule ".vim/pack/bundle/opt/nvim-treesitter"]
 	path = .vim/pack/bundle/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule ".vim/pack/bundle/opt/fzf.vim"]
+	path = .vim/pack/bundle/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".vim/pack/bundle/opt/vim-fugitive"]
+	path = .vim/pack/bundle/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
