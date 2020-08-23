@@ -88,3 +88,6 @@
 [submodule ".vim/pack/bundle/opt/nvim-lsp"]
 	path = .vim/pack/bundle/opt/nvim-lsp
 	url = https://github.com/neovim/nvim-lsp.git
+[submodule ".vim/pack/bundle/opt/coc.nvim"]
+	path = .vim/pack/bundle/opt/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git

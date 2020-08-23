@@ -35,6 +35,9 @@ if &loadplugins
     packadd! nvim-treesitter
   endif
 
+  " Conquer of Completion
+  packadd! coc.nvim
+
   " Treesitter completion for nvim
   if has('nvim')
     " packadd! completion-nvim
