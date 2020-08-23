@@ -7,8 +7,8 @@ nnoremap <Leader>; :
 nnoremap <Leader>q :quit<CR>
 nnoremap <Leader>s :update<CR>
 nnoremap <Leader>r :source $MYVIMRC<CR>
-nnoremap <Leader>ev :tabe ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>b :<C-U>buffers<CR>:buffer<Space>
+nnoremap <Leader>ev :tabe ~/.vim/vimrc<CR>
+" nnoremap <Leader>b :<C-U>buffers<CR>:buffer<Space>
 
 " Windows management
 nnoremap <Leader>ww <C-w>w
@@ -20,4 +20,3 @@ nnoremap <Leader>w= <C-w>=
 nnoremap <Leader>wt <C-w><S-t>
 nnoremap <Leader>wv <C-w>v
 nnoremap <Leader>ws <C-w>s
-

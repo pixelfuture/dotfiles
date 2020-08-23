@@ -39,3 +39,5 @@ nmap <silent> gr <Plug>(coc-references)
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+

@@ -13,6 +13,8 @@ set ruler                                              " Show line and column nu
 set cursorline                                         " highlight current line      
 set synmaxcol=200                                      " don't bother syntax highlighting long lines
 set number                                             " Show numbers in left column
+set laststatus=2                                       " Show statusline
+set hlsearch                                           " Highlight search matches
 
 if !has('nvim')
   " Support resizing tmux
@@ -46,3 +48,6 @@ set path+=**                                           " Search current director
 set foldmethod=syntax                                  " syntax highlighting specifies folds
 set foldlevelstart=99                                  " start file with all folds open
 
+" Fixes ESC delay
+set timeoutlen=1000 
+set ttimeoutlen=0 

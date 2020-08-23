@@ -1,6 +1,6 @@
 " fzf mapping
 nnoremap <Leader>t :Files<CR>
-" nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>gst :GFiles?<CR>
 nnoremap <Leader>a :Rg<Space>
 nnoremap <Leader>f :Rg<Space><C-r><C-w><CR>

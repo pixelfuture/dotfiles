@@ -13,12 +13,6 @@
 [submodule ".vim/pack/vendor/start/night-owl.vim"]
 	path = .vim/pack/vendor/start/night-owl.vim
 	url = https://github.com/haishanh/night-owl.vim.git
-[submodule ".vim/pack/vendor/start/vim-fugitive"]
-	path = .vim/pack/vendor/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/pack/vendor/start/fzf.vim"]
-	path = .vim/pack/vendor/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/pack/bundle/opt/vim-eunuch"]
 	path = .vim/pack/bundle/opt/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
@@ -76,3 +70,9 @@
 [submodule ".vim/pack/bundle/opt/night-owl.vim"]
 	path = .vim/pack/bundle/opt/night-owl.vim
 	url = https://github.com/haishanh/night-owl.vim.git
+[submodule ".vim/pack/bundle/opt/nvim-colorizer.lua"]
+	path = .vim/pack/bundle/opt/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua.git
+[submodule ".vim/pack/bundle/opt/nvim-treesitter"]
+	path = .vim/pack/bundle/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
