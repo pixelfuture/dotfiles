@@ -14,7 +14,7 @@ nnoremap <Leader>M :Maps<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   fzf#vim#with_preview({'options': ['--layout=reverse']}), <bang>0)
 
 " Customize Files command to display a preview window
 command! -bang -nargs=? -complete=dir Files

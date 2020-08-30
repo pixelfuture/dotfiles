@@ -23,26 +23,24 @@ if &loadplugins
   packadd! vim-context-commentstring
 
   " Syntax highlighting
-  if !has('nvim')
-    packadd! vim-javascript
-    packadd! vim-jsx-pretty
-  endif
+  packadd! vim-javascript
+  packadd! vim-jsx-pretty
   packadd! vim-graphql
   packadd! vim-pug
   packadd! vim-styled-components
   packadd! Jenkinsfile-vim-syntax
-  if has('nvim')
-    packadd! nvim-treesitter
-  endif
+  " if has('nvim')
+    " packadd! nvim-treesitter
+  " endif
 
   " Conquer of Completion
   packadd! coc.nvim
 
   " Treesitter completion for nvim
-  if has('nvim')
+  " if has('nvim')
     " packadd! completion-nvim
     " packadd! nvim-lsp
-  endif
+  " endif
 
   " Enhancements
   packadd! vim-highlightedyank
