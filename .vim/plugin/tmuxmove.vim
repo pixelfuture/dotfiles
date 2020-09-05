@@ -7,7 +7,7 @@ function! TmuxMove(direction)
         end
 endfunction
 
-nnoremap <silent> <c-h> :call TmuxMove('h')<cr>
-nnoremap <silent> <c-j> :call TmuxMove('j')<cr>
-nnoremap <silent> <c-k> :call TmuxMove('k')<cr>
-nnoremap <silent> <c-l> :call TmuxMove('l')<cr>
+nnoremap <silent> <M-h> :call TmuxMove('h')<cr>
+nnoremap <silent> <M-j> :call TmuxMove('j')<cr>
+nnoremap <silent> <M-k> :call TmuxMove('k')<cr>
+nnoremap <silent> <M-l> :call TmuxMove('l')<cr>

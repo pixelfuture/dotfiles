@@ -23,24 +23,27 @@ if &loadplugins
   packadd! vim-context-commentstring
 
   " Syntax highlighting
-  packadd! vim-javascript
-  packadd! vim-jsx-pretty
+  " if has('nvim')
+  " packadd! vim-javascript
+  " packadd! vim-jsx-pretty
+  " endif
   packadd! vim-graphql
   packadd! vim-pug
   packadd! vim-styled-components
   packadd! Jenkinsfile-vim-syntax
-  " if has('nvim')
-    " packadd! nvim-treesitter
-  " endif
+  if has('nvim')
+    packadd! nvim-treesitter
+  endif
 
   " Conquer of Completion
-  packadd! coc.nvim
+  " packadd! coc.nvim
 
   " Treesitter completion for nvim
-  " if has('nvim')
-    " packadd! completion-nvim
-    " packadd! nvim-lsp
-  " endif
+  if has('nvim')
+    packadd! completion-nvim
+    packadd! nvim-lsp
+    packadd! diagnostic-nvim
+  endif
 
   " Enhancements
   packadd! vim-highlightedyank
@@ -53,7 +56,8 @@ if &loadplugins
   packadd! vim-rhubarb
 
   " Theme
-  packadd! night-owl.vim
+  " packadd! night-owl.vim
+  packadd! forest-night
 
   " Automatically reload files
   packadd! vim-autoread
@@ -68,17 +72,21 @@ filetype plugin indent on
 syntax on
 set termguicolors
 
-colorscheme night-owl
+let g:forest_night_enable_italic = 1
+let g:forest_night_disable_italic_comment = 1
+let g:forest_night_transparent_background = 1
+colorscheme forest-night
 
+" colorscheme night-owl
 " Color Overrides
-hi jsTemplateString  guifg=#addb67 guibg=NONE gui=NONE
-hi xmlAttrib         guifg=#addb67 guibg=NONE gui=italic
-hi clear TabLine
-hi clear TabLineFill
-hi link TabLineFill CursorLineNr
-hi link TabLine CursorLineNr
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+" hi jsTemplateString  guifg=#addb67 guibg=NONE gui=NONE
+" hi xmlAttrib         guifg=#addb67 guibg=NONE gui=italic
+" hi clear TabLine
+" hi clear TabLineFill
+" hi link TabLineFill CursorLineNr
+" hi link TabLine CursorLineNr
+" hi! Normal ctermbg=NONE guibg=NONE
+" hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
