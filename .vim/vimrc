@@ -56,8 +56,8 @@ if &loadplugins
   packadd! vim-rhubarb
 
   " Theme
-  " packadd! night-owl
-  packadd! forest-night
+  packadd! night-owl.vim
+  " packadd! forest-night
 
   " Automatically reload files
   packadd! vim-autoread
@@ -69,15 +69,15 @@ endif
 " Must come *after* the `:packadd!` calls above otherwise the contents of
 " package "ftdetect" directories won't be evaluated.
 filetype plugin indent on
-" syntax on
+syntax enable
 set termguicolors
 
-let g:forest_night_enable_italic = 1
-let g:forest_night_disable_italic_comment = 1
-let g:forest_night_transparent_background = 1
-colorscheme forest-night
+" let g:forest_night_enable_italic = 1
+" let g:forest_night_disable_italic_comment = 1
+" let g:forest_night_transparent_background = 1
+" colorscheme forest-night
 
-" colorscheme night-owl
+colorscheme night-owl
 " Color Overrides
 hi jsTemplateString  guifg=#addb67 guibg=NONE gui=NONE
 hi xmlAttrib         guifg=#addb67 guibg=NONE gui=italic
