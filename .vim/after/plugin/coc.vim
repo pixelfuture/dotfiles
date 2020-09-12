@@ -1,4 +1,4 @@
-" use <tab> for trigger completion and navigate to the next complete item
+" " use <tab> for trigger completion and navigate to the next complete item
 " inoremap <silent><expr> <Tab>
 "       \ pumvisible() ? "\<C-n>" :
 "       \ <SID>check_back_space() ? "\<Tab>" :
@@ -24,7 +24,7 @@
 " endfunction
 
 " " Highlight the symbol and its references when holding the cursor.
-" " autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " " Symbol renaming
 " nmap <leader>rn <Plug>(coc-rename)

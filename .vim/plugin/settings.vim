@@ -31,18 +31,35 @@ set scrolloff=1                                        " Minimal number of scree
 set sidescrolloff=5                                    " Minimal number of screen lines to keep to the left and right of cursor. 
 
 " Backup and history settings
-set backup                                             " Enable backup
+set nobackup                                           " Enable backup
+set nowritebackup                                      " Enable backup
 set undofile                                           " Enable persistent undo
 set undodir=~/.local/share/nvim/undo//
-set directory=~/.local/share/nvim/swap//
-set backupdir=~/.local/share/nvim/backup//
+set noswapfile
+" set directory=~/.local/share/nvim/swap//
+" set backupdir=~/.local/share/nvim/backup//
 
 " Wildignore settings
 set wildignore+=*/node_modules/*,package-lock.json     " ignore node_modules directory
 
 " Options for file search with gf/:find
-set path-=/usr/include                                 " Let the C/C++ filetypes let that
-set path+=**                                           " Search current directory's whole tree
+set path=.,src                                          " Search current directory's whole tree
+set suffixesadd=.js,.scss
+function! LoadMainNodeModule(fname)
+  let nodeModules = "./node_modules/"
+  let packageJsonPath = nodeModules . a:fname . "/package.json"
+  let packageIndex = nodeModules . a:fname . "/index.js"
+
+  if filereadable(packageIndex)
+    return packageIndex
+  endif
+  if filereadable(packageJsonPath)
+    return nodeModules . a:fname . "/" . json_decode(join(readfile(packageJsonPath))).main
+  else
+    return nodeModules . a:fname
+  endif
+endfunction
+set includeexpr=LoadMainNodeModule(v:fname)
 
 " Folds
 set foldmethod=syntax                                  " syntax highlighting specifies folds
