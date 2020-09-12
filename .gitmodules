@@ -91,3 +91,6 @@
 [submodule ".vim/pack/bundle/opt/coc.nvim"]
 	path = .vim/pack/bundle/opt/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule ".vim/pack/bundle/opt/night-owl"]
+	path = .vim/pack/bundle/opt/night-owl
+	url = https://github.com/charliesbot/night-owl.vim.git

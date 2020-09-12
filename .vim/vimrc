@@ -56,7 +56,7 @@ if &loadplugins
   packadd! vim-rhubarb
 
   " Theme
-  packadd! night-owl.vim
+  packadd! night-owl
   " packadd! forest-night
 
   " Automatically reload files
