@@ -94,3 +94,6 @@
 [submodule ".vim/pack/bundle/opt/night-owl"]
 	path = .vim/pack/bundle/opt/night-owl
 	url = https://github.com/charliesbot/night-owl.vim.git
+[submodule ".vim/pack/bundle/opt/ultisnips"]
+	path = .vim/pack/bundle/opt/ultisnips
+	url = https://github.com/SirVer/ultisnips.git

@@ -21,6 +21,7 @@ if &loadplugins
   " Comments gcc
   packadd! vim-commentary
   packadd! vim-context-commentstring
+  " packadd! ultisnips
 
   " Syntax highlighting
   " if has('nvim')

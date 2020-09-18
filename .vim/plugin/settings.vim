@@ -22,6 +22,7 @@ if !has('nvim')
 endif
 
 " Indent settings
+set smartindent
 set expandtab                                          " Spaces instead of tabs
 set tabstop=2 shiftwidth=2 softtabstop=2               " 2 spaces
 set breakindent                                        " Indent wrapped lines
