@@ -63,7 +63,7 @@ endfunction
 set includeexpr=LoadMainNodeModule(v:fname)
 
 " Folds
-set foldmethod=syntax                                  " syntax highlighting specifies folds
+" set foldmethod=syntax                                  " syntax highlighting specifies folds
 set foldlevelstart=99                                  " start file with all folds open
 
 " Fixes ESC delay

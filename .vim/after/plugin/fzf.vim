@@ -18,7 +18,7 @@ command! -bang -nargs=* Rg
 
 " Customize Files command to display a preview window
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse']}), <bang>0)
 
 let g:fzf_layout = { 'window': 'enew' } " floating window
 let g:fzf_preview_window = 'right:60%'

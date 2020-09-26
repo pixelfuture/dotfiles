@@ -19,8 +19,7 @@ augroup LuaHighlight
   autocmd Filetype javascript setl omnifunc=v:tsserver.vim.lsp.omnifunc
 augroup END
 
-" " Set completeopt to have a better completion experience
-" set completeopt=menuone,noinsert,noselect
-
-" " Avoid showing message extra message when using completion
-" set shortmess+=c
+augroup LuaHighlight
+  autocmd!
+  autocmd Filetype javascript setl foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
+augroup END

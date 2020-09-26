@@ -95,3 +95,11 @@ silent! helptags ALL
 
 " TODO
 " 1. Set Jenkinsfile to groovy ' set ft=groovy' and remove Jenkins-vim-syntax
+
+
+" Testing
+" npx es-check es5 './index.js'
+function! ES5Check()
+  execute '20split | term npx es-check es5 "./index.js"'
+endfunction
+
