@@ -19,7 +19,7 @@ local on_attach = function (_, bufnr)
   -- vim.api.nvim_buf_set_keymap(bufnr, 'i', '<Tab>', 'pumvisible() ? "\<C-n>" : "\<Tab>"')
 end
 
-local servers = {'tsserver'}
+local servers = {'tsserver', 'sumneko_lua'}
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {

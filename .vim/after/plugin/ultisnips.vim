@@ -1,1 +1,1 @@
-let g:UltiSnipsExpandTrigger="<nop>"
+" let g:UltiSnipsExpandTrigger="<nop>"

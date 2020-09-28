@@ -52,12 +52,15 @@ if &loadplugins
   packadd! indentLine
   packadd! vim-surround
   packadd! is.vim
+  packadd! vim-prettier
 
   " Adds :Gbrowse
   packadd! vim-rhubarb
 
   " Theme
   packadd! night-owl.vim
+  packadd! vim-nightfly-guicolors
+  packadd! vim-moonfly-colors
   " packadd! forest-night
 
   " Automatically reload files
@@ -78,7 +81,9 @@ set termguicolors
 " let g:forest_night_transparent_background = 1
 " colorscheme forest-night
 
-colorscheme night-owl
+" colorscheme nightfly
+colorscheme moonfly
+" colorscheme night-owl
 " Color Overrides
 hi jsTemplateString  guifg=#addb67 guibg=NONE gui=NONE
 hi xmlAttrib         guifg=#addb67 guibg=NONE gui=italic

@@ -97,3 +97,12 @@
 [submodule ".vim/pack/bundle/opt/ultisnips"]
 	path = .vim/pack/bundle/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/pack/bundle/opt/vim-prettier"]
+	path = .vim/pack/bundle/opt/vim-prettier
+	url = https://github.com/prettier/vim-prettier.git
+[submodule ".vim/pack/bundle/opt/vim-nightfly-guicolors"]
+	path = .vim/pack/bundle/opt/vim-nightfly-guicolors
+	url = https://github.com/bluz71/vim-nightfly-guicolors.git
+[submodule ".vim/pack/bundle/opt/vim-moonfly-colors"]
+	path = .vim/pack/bundle/opt/vim-moonfly-colors
+	url = https://github.com/bluz71/vim-moonfly-colors.git
