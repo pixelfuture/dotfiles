@@ -118,3 +118,6 @@
 [submodule ".vim/pack/bundle/opt/plenary.nvim"]
 	path = .vim/pack/bundle/opt/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule ".vim/pack/bundle/opt/snippets.nvim"]
+	path = .vim/pack/bundle/opt/snippets.nvim
+	url = https://github.com/norcalli/snippets.nvim.git

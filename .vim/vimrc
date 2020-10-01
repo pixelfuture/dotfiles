@@ -26,7 +26,6 @@ if &loadplugins
   " Comments gcc
   packadd! vim-commentary
   packadd! vim-context-commentstring
-  " packadd! ultisnips
 
   " Syntax highlighting
   packadd! nvim-treesitter
@@ -46,6 +45,7 @@ if &loadplugins
   endif
 
   " Enhancements
+  packadd! snippets.nvim
   packadd! vim-highlightedyank
   packadd! auto-pairs
   packadd! indentLine

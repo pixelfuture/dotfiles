@@ -8,7 +8,7 @@ lua require('treesitter')
 " lsp settings
 lua require('lsp')
 
-" let g:completion_enable_snippet = 'UltiSnips'
+let g:completion_enable_snippet = 'snippets.nvim'
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " diagnostics
@@ -37,3 +37,7 @@ nnoremap <silent><Leader>fq <cmd>lua require'telescope.builtin'.quickfix{}<CR>
 nnoremap <silent><Leader>en <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/.config/nvim/" }<CR>
 nnoremap <silent> gr <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 nnoremap <silent><Leader>gst <cmd>lua require('hotrod.telescope').dirty_files()<CR>
+
+" snippets.nvim
+lua require'snippets'.use_suggested_mappings()
+lua require'hotrod.snippets'
