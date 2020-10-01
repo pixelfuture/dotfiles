@@ -106,3 +106,15 @@
 [submodule ".vim/pack/bundle/opt/vim-moonfly-colors"]
 	path = .vim/pack/bundle/opt/vim-moonfly-colors
 	url = https://github.com/bluz71/vim-moonfly-colors.git
+[submodule ".vim/pack/bundle/opt/popup.nvim"]
+	path = .vim/pack/bundle/opt/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim.git
+[submodule ".vim/pack/bundle/opt/plenavry.nvim"]
+	path = .vim/pack/bundle/opt/plenavry.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule ".vim/pack/bundle/opt/telescope.nvim"]
+	path = .vim/pack/bundle/opt/telescope.nvim
+	url = https://github.com/nvim-lua/telescope.nvim.git
+[submodule ".vim/pack/bundle/opt/plenary.nvim"]
+	path = .vim/pack/bundle/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git

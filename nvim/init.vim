@@ -23,3 +23,17 @@ augroup LuaHighlight
   autocmd!
   autocmd Filetype javascript setl foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
 augroup END
+
+" telescope 
+lua require('telescope').setup{}
+nnoremap <silent><Leader>t <cmd>lua require'telescope.builtin'.fd{}<CR>
+nnoremap <silent><Leader>p <cmd>lua require('hotrod.telescope').search_files()<CR>
+nnoremap <silent><Leader>a <cmd>lua require'telescope.builtin'.live_grep{}<CR>
+nnoremap <silent><Leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <silent><Leader>fw <cmd>lua require'telescope.builtin'.grep_string{}<CR>
+nnoremap <silent><Leader>fb <cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
+nnoremap <silent><Leader>ft <cmd>lua require'telescope.builtin'.treesitter{}<CR>
+nnoremap <silent><Leader>fq <cmd>lua require'telescope.builtin'.quickfix{}<CR>
+nnoremap <silent><Leader>en <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/.config/nvim/" }<CR>
+nnoremap <silent> gr <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap <silent><Leader>gst <cmd>lua require('hotrod.telescope').dirty_files()<CR>

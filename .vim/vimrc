@@ -1,18 +1,23 @@
 let mapleader = ' '
 
 " Add fzf as runtime path
-if executable('fzf')
-  set rtp+=/usr/local/opt/fzf
-endif
+" if executable('fzf')
+"   set rtp+=/usr/local/opt/fzf
+" endif
 
 if &loadplugins
   " Navigation
-  packadd! fzf.vim
+  " packadd! fzf.vim
   packadd! vim-asterisk
   packadd! vim-dirvish
   packadd! vim-eunuch
   packadd! vim-sneak
   packadd! vim-unimpaired
+
+  " telescope
+  packadd! popup.nvim
+  packadd! plenary.nvim
+  packadd! telescope.nvim
 
   " Git
   packadd! vim-fugitive
@@ -24,17 +29,11 @@ if &loadplugins
   " packadd! ultisnips
 
   " Syntax highlighting
-  " if has('nvim')
-  " packadd! vim-javascript
-  " packadd! vim-jsx-pretty
-  " endif
+  packadd! nvim-treesitter
   packadd! vim-graphql
   packadd! vim-pug
   packadd! vim-styled-components
   packadd! Jenkinsfile-vim-syntax
-  " if has('nvim')
-    packadd! nvim-treesitter
-  " endif
 
   " Conquer of Completion
   " packadd! coc.nvim
