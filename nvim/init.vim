@@ -25,7 +25,7 @@ augroup LuaHighlight
 augroup END
 
 " telescope 
-lua require('telescope').setup{}
+lua require'hotrod.telescope'
 nnoremap <silent><Leader>t <cmd>lua require'telescope.builtin'.fd{}<CR>
 nnoremap <silent><Leader>p <cmd>lua require('hotrod.telescope').search_files()<CR>
 nnoremap <silent><Leader>a <cmd>lua require'telescope.builtin'.live_grep{}<CR>
