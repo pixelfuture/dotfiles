@@ -30,6 +30,7 @@ for ${1:i}, ${2:v} in ipairs(${3:t}) do
 end]];
   };
   javascript = {
+    cl = [[console.log($0)]];
     user_input = [[hey? ${-1=vim.fn.input("what's up? ")} = ${-1}]];
     imp = [[import ${2} from '${1}'$0]];
     useEffect = [[
