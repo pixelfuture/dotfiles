@@ -58,8 +58,8 @@ if &loadplugins
 
   " Theme
   packadd! night-owl.vim
-  packadd! vim-nightfly-guicolors
-  packadd! vim-moonfly-colors
+  " packadd! vim-nightfly-guicolors
+  " packadd! vim-moonfly-colors
   " packadd! forest-night
 
   " Automatically reload files
@@ -81,8 +81,9 @@ set termguicolors
 " colorscheme forest-night
 
 " colorscheme nightfly
-colorscheme moonfly
-" colorscheme night-owl
+" colorscheme moonfly
+colorscheme night-owl
+
 " Color Overrides
 hi jsTemplateString  guifg=#addb67 guibg=NONE gui=NONE
 hi xmlAttrib         guifg=#addb67 guibg=NONE gui=italic
