@@ -3,6 +3,7 @@ set clipboard=unnamed
 set hidden
 set ignorecase
 set smartcase
+set inccommand=split
 set splitbelow
 set splitright
 set cursorline

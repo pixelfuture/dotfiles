@@ -11,8 +11,8 @@ nnoremap <Leader>ev :tabe ~/.vim/vimrc<CR>
 nnoremap <Leader>eu :tabe ~/standup.md<CR>
 nnoremap <Leader>ez :tabe ~/.zshrc<CR>
 nnoremap <Leader>et :tabe <BAR> startinsert <BAR> terminal<CR>
-nnoremap <Leader>est :10split <BAR> startinsert <BAR> terminal<CR>
-nnoremap <Leader>evt :100vsplit <BAR> startinsert <BAR> terminal<CR>
+" nnoremap <Leader>est :10split <BAR> startinsert <BAR> terminal<CR>
+" nnoremap <Leader>evt :100vsplit <BAR> startinsert <BAR> terminal<CR>
 
 " Windows management
 nnoremap <Leader>ww <C-w>w

@@ -29,8 +29,11 @@ if &loadplugins
 
   " Syntax highlighting
   packadd! nvim-treesitter
+  packadd! nvim-treesitter-refactor
+  packadd! nvim-treesitter-textobjects
+  " packadd! vim-javascript
   packadd! vim-graphql
-  packadd! vim-pug
+  " packadd! vim-pug
   packadd! vim-styled-components
   packadd! Jenkinsfile-vim-syntax
 
@@ -38,19 +41,17 @@ if &loadplugins
   " packadd! coc.nvim
 
   " lsp completion for nvim
-  if has('nvim')
-    packadd! completion-nvim
-    packadd! nvim-lsp
-    packadd! diagnostic-nvim
-  endif
+  packadd! completion-nvim
+  packadd! nvim-lsp
+  packadd! diagnostic-nvim
 
   " Enhancements
   packadd! snippets.nvim
-  packadd! vim-highlightedyank
+  " packadd! vim-highlightedyank
   packadd! auto-pairs
-  packadd! indentLine
+  " packadd! indentLine
   packadd! vim-surround
-  packadd! is.vim
+  " packadd! is.vim
   packadd! vim-prettier
 
   " Adds :Gbrowse
@@ -107,4 +108,3 @@ silent! helptags ALL
 function! ES5Check()
   execute '20split | term npx es-check es5 "./index.js"'
 endfunction
-

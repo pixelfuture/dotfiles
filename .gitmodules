@@ -121,3 +121,9 @@
 [submodule ".vim/pack/bundle/opt/snippets.nvim"]
 	path = .vim/pack/bundle/opt/snippets.nvim
 	url = https://github.com/norcalli/snippets.nvim.git
+[submodule ".vim/pack/bundle/opt/nvim-treesitter-refactor"]
+	path = .vim/pack/bundle/opt/nvim-treesitter-refactor
+	url = https://github.com/nvim-treesitter/nvim-treesitter-refactor.git
+[submodule ".vim/pack/bundle/opt/nvim-treesitter-textobjects"]
+	path = .vim/pack/bundle/opt/nvim-treesitter-textobjects
+	url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git
