@@ -1,0 +1,5 @@
+vim.api.nvim_command('augroup term_buf')
+vim.api.nvim_command('autocmd!')
+vim.api.nvim_command("au TermOpen * silent! setlocal norelativenumber nonumber")
+vim.api.nvim_command("au TermOpen * silent! startinsert")
+vim.api.nvim_command('augroup END')

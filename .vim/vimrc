@@ -17,11 +17,12 @@ if &loadplugins
   " telescope
   packadd! popup.nvim
   packadd! plenary.nvim
-  packadd! telescope.nvim
+  " packadd! telescope.nvim
 
   " Git
   packadd! vim-fugitive
   packadd! vim-gitgutter
+
 
   " Comments gcc
   packadd! vim-commentary
@@ -41,9 +42,9 @@ if &loadplugins
   " packadd! coc.nvim
 
   " lsp completion for nvim
-  packadd! completion-nvim
+  " packadd! completion-nvim
   packadd! nvim-lsp
-  packadd! diagnostic-nvim
+  " packadd! diagnostic-nvim
 
   " Enhancements
   packadd! snippets.nvim
