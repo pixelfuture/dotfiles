@@ -40,11 +40,11 @@ function core_options()
     sidescrolloff = 15,
     updatetime = 100, -- CursorHold relies on this
     backupcopy = "yes", -- fix weirdness for postcss
-    completeopt='menuone,noinsert,noselect', -- better completion
-    wildignore = '*/node_modules/*,package-lock.json', -- ignore node_modules
-    path = '.,src,**', -- search current directory
-    suffixesadd = '.js,.scss',
-    foldlevelstart = 99,
+    completeopt = "menuone,noinsert,noselect", -- better completion
+    wildignore = "*/node_modules/*,package-lock.json", -- ignore node_modules
+    path = ".,src,**", -- search current directory
+    suffixesadd = ".js,.scss",
+    foldlevelstart = 99
   }
 
   local windowOptions = {
@@ -53,7 +53,7 @@ function core_options()
     relativenumber = true, -- enable relativenumber
     cursorline = true, -- enable cursorline
     signcolumn = "yes", -- enable sign column all the time
-    foldmethod = "marker", -- foldmethod using marker
+    foldmethod = "marker" -- foldmethod using marker
   }
 
   setEditorOptions(editorOptions)

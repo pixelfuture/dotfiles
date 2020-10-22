@@ -10,6 +10,11 @@ return require('packer').startup(function()
   use 'tpope/vim-rhubarb' -- :Gbrowse
   use 'haishanh/night-owl.vim' -- night owl colorscheme
   use 'psliwka/vim-smoothie' -- smooth scrolling
+  use 'norcalli/nvim-colorizer.lua' -- colorize hex/rgb/hsl value
+  use 'euclidianAce/BetterLua.vim' -- better lua highlighting
+  use 'Yggdroot/indentline' -- indentline guide
+  use 'tpope/vim-commentary' -- comment code (gcc)
+  use 'suy/vim-context-commentstring' -- change comment string
   -- Simple plugins can be specified as strings
   -- use '9mm/vim-closer'
 
