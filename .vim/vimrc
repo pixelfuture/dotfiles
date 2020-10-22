@@ -23,7 +23,6 @@ if &loadplugins
   packadd! vim-fugitive
   packadd! vim-gitgutter
 
-
   " Comments gcc
   packadd! vim-commentary
   packadd! vim-context-commentstring

@@ -8,3 +8,6 @@ require'hotrod.yankhighlight'
 require'hotrod.mappings'
 require'hotrod.terminal'
 require'hotrod.commands'
+
+-- Plugins setup
+require'hotrod.plugins.signify'
