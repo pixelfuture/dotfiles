@@ -1,5 +1,5 @@
 local cmd = vim.cmd
-cmd [[colorscheme night-owl]]
+cmd('colorscheme night-owl')
 
 -- Color Overrides
 function apply_night_owl_color_overrides()
@@ -12,8 +12,10 @@ function apply_night_owl_color_overrides()
       cmd('hi TabLineFill gui=none guibg=#00081a') -- tab background
 
       -- signify
-      cmd('hi clear SignifySignChange')
       cmd('hi SignifySignChange gui=none guifg=#ffd787 guibg=none')
+      cmd('hi SignifySignAdd gui=none guifg=#aadb67 guibg=none')
+      cmd('hi SignifySignDelete gui=none guifg=#ff5874 guibg=none')
+      cmd('hi SignifySignDeleteFirstLine gui=none guifg=#ff5874 guibg=none') -- not showing up?
     end
   )
 end

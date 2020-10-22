@@ -7,6 +7,7 @@ return require('packer').startup(function()
   use 'justinmk/vim-dirvish' -- path navigator
   use 'tpope/vim-fugitive' -- git helper
   use 'mhinz/vim-signify' -- git sign column
+  use 'tpope/vim-rhubarb' -- :Gbrowse
   use 'haishanh/night-owl.vim' -- night owl colorscheme
   use 'psliwka/vim-smoothie' -- smooth scrolling
   -- Simple plugins can be specified as strings
