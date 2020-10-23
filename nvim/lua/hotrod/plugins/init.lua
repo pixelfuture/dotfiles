@@ -15,6 +15,10 @@ return require('packer').startup(function()
   use 'Yggdroot/indentline' -- indentline guide
   use 'tpope/vim-commentary' -- comment code (gcc)
   use 'suy/vim-context-commentstring' -- change comment string
+  use 'yuezk/vim-js' -- better js highlighting support
+  use 'maxmellon/vim-jsx-pretty' -- jsx highlighting
+  use 'junegunn/fzf.vim' -- fzf
+
   -- Simple plugins can be specified as strings
   -- use '9mm/vim-closer'
 

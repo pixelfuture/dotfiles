@@ -44,7 +44,7 @@ function core_options()
     wildignore = "*/node_modules/*,package-lock.json", -- ignore node_modules
     path = ".,src,**", -- search current directory
     suffixesadd = ".js,.scss",
-    foldlevelstart = 99
+    foldlevelstart = 99,
   }
 
   local windowOptions = {
@@ -58,6 +58,8 @@ function core_options()
 
   setEditorOptions(editorOptions)
   setWindowOptions(windowOptions)
+  vim.o.runtimepath = vim.o.runtimepath .. ',/usr/local/opt/fzf'
+
 end
 
 core_options()

@@ -10,6 +10,16 @@ function commands()
   end
 end
 
+rebase_development = function()
+  cmd("silent Git stash")
+  cmd("silent Git chechout main")
+  cmd("silent Git branch -D development")
+  cmd("silent Git checkout development")
+  cmd("silent Git rebase main -i")
+end
+
+cmd [[command! RebaseDev lua rebase_development{}]]
+
 -- prettier for javascript
 cmd("augroup prettier")
 cmd("autocmd!")
