@@ -1,3 +1,4 @@
+local vim = _G.vim
 local remap = vim.api.nvim_set_keymap
 local options = {noremap = true, silent = true}
 
@@ -26,11 +27,11 @@ remap("n", "<Leader>ev", ":e ~/.config/nvim<CR>", {noremap = true})
 remap("n", "<Leader>ep", ":e ~/standup.md<CR>", {noremap = true})
 remap("n", "<Leader>ez", ":e ~/.zshrc<CR>", {noremap = true})
 
--- windows management
-remap("n", "<M-h>", "<C-w>h", options)
-remap("n", "<M-j>", "<C-w>j", options)
-remap("n", "<M-k>", "<C-w>k", options)
-remap("n", "<M-l>", "<C-w>l", options)
+-- window management
+remap("n", "<M-h>", "<cmd>lua win_move('h')<CR>", options)
+remap("n", "<M-j>", "<cmd>lua win_move('j')<CR>", options)
+remap("n", "<M-k>", "<cmd>lua win_move('k')<CR>", options)
+remap("n", "<M-l>", "<cmd>lua win_move('l')<CR>", options)
 remap("n", "<Leader>ww", "<C-w>w", options)
 remap("n", "<Leader>wo", "<C-w>o", options)
 remap("n", "<Leader>wh", "<C-w>h", options)
@@ -63,6 +64,7 @@ remap("n", "<Leader>fh", ":Helptags!<CR>", {noremap = true}) -- searches all hel
 remap("n", "<Leader>fc", ":Colors<CR>", {noremap = true}) -- color schemes
 remap("n", "<Leader>fC", ":Commands<CR>", {noremap = true}) -- search commands
 remap("n", "<Leader>fM", ":Maps<CR>", {noremap = true}) -- normal mode mappings
+remap("n", "<Leader>ft", ":Tags<CR>", {noremap = true}) -- normal mode mappings
 remap("n", "<Leader>gs", ":GFiles?<CR>", {noremap = true}) -- git modified files
 remap("n", "<Leader>gb", ":GBranch<CR>", {noremap = true}) -- git modified files
 remap("n", "<Leader>gc", ":BCommits<CR>", {noremap = true}) -- git commits for current buffer
@@ -72,3 +74,6 @@ remap("n", "<Leader>fH", ":History:<CR>", {noremap = true}) -- search command hi
 remap("n", "<Leader>en", "<cmd>EditNeovim<CR>", {noremap = true}) -- search neovim config
 remap("n", "<Leader>es", "<cmd>EditScripts<CR>", {noremap = true}) -- search scripts dir
 
+-- COC
+remap("n", "[g", "<Plug>(coc-diagnostic-prev)", {noremap = true}) -- search neovim config
+remap("n", "]g", "<Plug>(coc-diagnostic-next)", {noremap = true}) -- search scripts dir

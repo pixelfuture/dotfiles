@@ -1,28 +1,18 @@
 lua require'hotrod.init'
+let g:python3_host_prog = "/usr/local/opt/python@3.8/bin/python3"
+set shiftwidth=2 tabstop=2 softtabstop=2
 
-" treesitter settings
-" lua require'hotrod.treesitter'
-" augroup LuaFold
-"   autocmd!
-"   autocmd Filetype javascript setl foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
-" augroup END
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-
-" lsp settings
-" lua require('lsp')
-
-" let g:completion_enable_snippet = 'snippets.nvim'
-" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
-" diagnostics
-" let g:diagnostic_enable_virtual_text = 1
-
-" augroup LuaHighlight
-"   autocmd!
-"   autocmd Filetype javascript setl omnifunc=v:tsserver.vim.lsp.omnifunc
-" augroup END
-
-
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+hi User1 guifg=#ecc48d guibg=#112630 
 " telescope 
 " lua require'hotrod.telescope'
 " nnoremap <silent><Leader>t <cmd>lua require'hotrod.telescope'.fd{}<CR>

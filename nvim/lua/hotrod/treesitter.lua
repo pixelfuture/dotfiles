@@ -1,3 +1,4 @@
+vim.cmd('packadd nvim-treesitter')
 require "nvim-treesitter.configs".setup {
   highlight = {enable = true},
   incremental_selection = {
@@ -61,7 +62,6 @@ require "nvim-treesitter.configs".setup {
   },
   set_folding = {
     attach = function(bufnr, lang)
-      print("Set folding using treesitterl")
       vim.o.foldmethod = "expr"
       vim.o.foldexpr = "nvim_treesitter#foldexpr()"
     end

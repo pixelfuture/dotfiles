@@ -1,3 +1,4 @@
 {
-  "coc.preferences.formatOnSaveFiletypes":["javascript"]
+  "coc.preferences.formatOnSaveFiletypes":["javascript"],
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

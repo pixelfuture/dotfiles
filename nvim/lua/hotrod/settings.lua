@@ -10,6 +10,21 @@ function setWindowOptions(options)
   end
 end
 
+local include = [[\v[^/]from]]
+local define = [[\v^\s*<(const|function)>]]
+vim.cmd [[
+function! JSInclude(fname)
+  let filepath = a:fname . '.js'
+  let indexPath = a:fname . '/index.js'
+  let found = glob(filepath, 1)
+  if len(found) < 1
+    let foundAsIndex = glob(indexPath, 1)
+     return indexPath
+   endif
+   return filepath
+endfunction
+]]
+
 function core_options()
   local editorOptions = {
     hidden = true, -- keep hidden buffers
@@ -30,7 +45,7 @@ function core_options()
     inccommand = "split", -- preview window for substitute
     mouse = "a", -- enable mouse support
     clipboard = "unnamed", -- system clipboard
-    shortmess = "cs", -- disable some stuff on shortmess
+    shortmess = "aoOtTIc", -- disable some stuff on shortmess
     fillchars = "vert:│", -- make vertical split sign better
     shiftwidth = 2, -- set indentation width
     tabstop = 2, -- width of tab character
@@ -40,11 +55,14 @@ function core_options()
     sidescrolloff = 15,
     updatetime = 100, -- CursorHold relies on this
     backupcopy = "yes", -- fix weirdness for postcss
-    completeopt = "menuone,noinsert,noselect", -- better completion
-    wildignore = "*/node_modules/*,package-lock.json", -- ignore node_modules
-    path = ".,src,**", -- search current directory
+    completeopt = "menuone,noinsert,noselect,preview", -- better completion
+    wildignore = "*/node_modules/*,package-lock.json,*.snap,*/__snapshots__/*", -- ignore node_modules
+    -- path = ".,src,**", -- search current directory
+    path = "src/**,tests/**", -- search current directory
     suffixesadd = ".js,.scss",
     foldlevelstart = 99,
+    include = include,
+    includeexpr = [[JSInclude(v:fname)]],
   }
 
   local windowOptions = {
@@ -53,7 +71,7 @@ function core_options()
     relativenumber = true, -- enable relativenumber
     cursorline = true, -- enable cursorline
     signcolumn = "yes", -- enable sign column all the time
-    foldmethod = "marker" -- foldmethod using marker
+    -- foldmethod = vim.fn.nvim_treesitter#foldexpr() -- foldmethod using marker
   }
 
   setEditorOptions(editorOptions)
