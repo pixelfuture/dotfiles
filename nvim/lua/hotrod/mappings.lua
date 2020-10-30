@@ -71,8 +71,9 @@ remap("n", "<Leader>gc", ":BCommits<CR>", {noremap = true}) -- git commits for c
 remap("n", "<Leader>gC", ":Commits<CR>", {noremap = true}) -- git commits
 remap("n", "<Leader>fo", ":History<CR>", {noremap = true}) -- search oldfiles and open buffers
 remap("n", "<Leader>fH", ":History:<CR>", {noremap = true}) -- search command history
-remap("n", "<Leader>en", "<cmd>EditNeovim<CR>", {noremap = true}) -- search neovim config
-remap("n", "<Leader>es", "<cmd>EditScripts<CR>", {noremap = true}) -- search scripts dir
+remap("n", "<Leader>en", "<cmd>EditNeovim<CR>", {noremap = true}) -- edit neovim config
+remap("n", "<Leader>es", "<cmd>EditScripts<CR>", {noremap = true}) -- edit scripts in scripts dir
+remap("n", "<Leader>em", "<cmd>EditNotes<CR>", {noremap = true}) -- edit markdown note files
 
 -- COC
 remap("n", "[g", "<Plug>(coc-diagnostic-prev)", {noremap = true}) -- search neovim config

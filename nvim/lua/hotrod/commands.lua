@@ -2,15 +2,8 @@ local vim = _G.vim
 local cmd = vim.cmd
 local fn = vim.fn
 
-function commands()
-  local cmds = {
-    [[command! -bang ES5Check execute '20split | npx es-check es5 "./index.js"']]
-  }
-
-  for _, command in pairs(cmds) do
-    cmd(command)
-  end
-end
+-- ES5Check for HHBuilder homeworks
+cmd [[command! -bang ES5Check execute '20split | !npx es-check es5 "./index.js"']]
 
 -- Start rebasing development branch
 rebase_development = function()
