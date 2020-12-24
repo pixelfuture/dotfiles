@@ -78,3 +78,4 @@ remap("n", "<Leader>em", "<cmd>EditNotes<CR>", {noremap = true}) -- edit markdow
 -- COC
 remap("n", "[g", "<Plug>(coc-diagnostic-prev)", {noremap = true}) -- search neovim config
 remap("n", "]g", "<Plug>(coc-diagnostic-next)", {noremap = true}) -- search scripts dir
+remap("n", "<Leader>cc", "<cmd>CocFzfList<CR>", options)

@@ -30,4 +30,3 @@ end
 
 -- Search git branches
 cmd [[command! GBranch lua git_branches{}]]
-

@@ -25,8 +25,14 @@ return require("packer").startup(
     use "tpope/vim-surround" -- add parentheses, brackets, quotes, xml tags
     use {"styled-components/vim-styled-components", branch = "main"} -- syntax highlighting
     use "jparise/vim-graphql" -- syntax highlighting
+    use {'andymass/vim-matchup', event = 'VimEnter *'}
     use {"neoclide/coc.nvim", branch = "release"} -- conquer of completion
     use "antoinemadec/coc-fzf" -- coc fzf
+    use "SirVer/ultisnips" -- snippets
+    use {
+      "nvim-treesitter/nvim-treesitter", -- treesitter
+      requires = {'nvim-treesitter/nvim-treesitter-refactor', 'nvim-treesitter/nvim-treesitter-textobjects'}
+    }
 
     -- use 'neovim/nvim-lspconfig' -- lsp
     -- use 'nvim-lua/completion-nvim' -- lsp completion
@@ -37,7 +43,6 @@ return require("packer").startup(
     -- use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
     -- Load on an autocommand event
-    use {'andymass/vim-matchup', event = 'VimEnter *'}
 
     -- Load on a combination of conditions: specific filetypes or commands
     -- Also run code after load (see the "config" key)
@@ -47,12 +52,6 @@ return require("packer").startup(
     -- cmd = 'ALEEnable',
     -- config = 'vim.cmd[[ALEEnable]]'
     -- }
-
-    -- Plugins can have dependencies on other plugins
-    use {
-      "nvim-treesitter/nvim-treesitter",
-      requires = {'nvim-treesitter/nvim-treesitter-refactor', 'nvim-treesitter/nvim-treesitter-textobjects'}
-    }
 
     -- Local plugins can be included
     -- use '~/projects/personal/hover.nvim'

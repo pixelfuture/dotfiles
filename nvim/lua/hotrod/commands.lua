@@ -42,7 +42,7 @@ create_scratch = function()
   cmd("60vnew")
   cmd("setlocal buftype=nofile bufhidden=hide noswapfile")
 end
-
+-- it’s so cool →
 cmd [[command! Scratch lua create_scratch{}]]
 
 -- Help in new tab
@@ -110,4 +110,3 @@ cmd("augroup LuaFold")
 cmd("autocmd!")
 cmd [[autocmd Filetype javascript setl foldmethod=expr foldexpr=nvim_treesitter#foldexpr()]]
 cmd("augroup END")
-
