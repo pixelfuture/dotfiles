@@ -1,1 +1,0 @@
-/Users/rodrigomunoz/dotfiles/.vim
