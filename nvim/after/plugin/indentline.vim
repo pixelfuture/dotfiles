@@ -1,1 +1,0 @@
-let indentLine_char = '│'
