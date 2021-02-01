@@ -33,6 +33,7 @@ o.pumheight       = 10                          -- maximum 10 lines in popup men
 o.shiftwidth      = 2                           -- number of spaces to indent
 o.tabstop         = 2                           -- number of spaces to indent with <Tab>
 o.softtabstop     = 2                           -- number of spaces to indent with <Tab> or <BS>
+o.smartindent     = true                        -- better indentation
 o.expandtab       = true                        -- use spaces (not tabs)
 o.shortmess       = 'aoOtTIc'                   -- customize shortmess
 
@@ -42,4 +43,3 @@ o.suffixesadd     = '.js,.scss'                 -- help resolve gf command
 o.ignorecase      = true                        -- case insensitive search
 o.smartcase       = true                        -- case sensitivity on when caps used
 o.wildignore      = '*/node_modules/*,package-lock.json,*.snap,*/__snapshots__/*'
-

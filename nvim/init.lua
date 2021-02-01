@@ -33,6 +33,7 @@ paq {'styled-components/vim-styled-components', branch = 'main'}
 paq {'norcalli/nvim-colorizer.lua'}
 paq {'junegunn/fzf', hook = fn['fzf#install']}
 paq {'junegunn/fzf.vim'}
+paq {'unblevable/quick-scope'}
 
 -- Plugins Setup
 require'plugins/colorizer'
