@@ -22,7 +22,6 @@ paq {'tpope/vim-commentary'}
 paq {'tpope/vim-unimpaired'}
 paq {'tpope/vim-repeat'}
 paq {'tpope/vim-surround'}
-paq {'suy/vim-context-commentstring'}
 paq {'mhinz/vim-signify'}
 paq {'haishanh/night-owl.vim'}
 paq {'Yggdroot/indentline'}
@@ -34,6 +33,7 @@ paq {'norcalli/nvim-colorizer.lua'}
 paq {'junegunn/fzf', hook = fn['fzf#install']}
 paq {'junegunn/fzf.vim'}
 paq {'unblevable/quick-scope'}
+paq {'sbdchd/neoformat'}
 
 -- Plugins Setup
 require'plugins/colorizer'
@@ -47,4 +47,6 @@ require'plugins/statusline'
 require'plugins/terminal'
 require'plugins/treesitter'
 require'plugins/yankhighlight'
+require'plugins/prettier'
+require'plugins/vim-commentary'
 
