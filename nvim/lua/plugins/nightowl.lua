@@ -7,6 +7,8 @@ local setup = function()
   cmd 'autocmd ColorScheme * hi TabLineSel gui=bold guifg=#d2dee7 guibg=#0b2942'
   cmd 'autocmd ColorScheme * hi TabLine gui=none guifg=#5f7e97 guibg=#01111d'
   cmd 'autocmd ColorScheme * hi TabLineFill gui=none guibg=#00081a'
+  cmd 'autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE'
+  cmd 'autocmd VimEnter * hi EndOfBuffer guibg=NONE ctermbg=NONE'
   -- cmd 'autocmd ColorScheme * hi User1 guifg=#ecc48d guibg=#112630'
   -- cmd 'autocmd ColorScheme * hi SignifySignChange gui=none guifg=#ffd787 guibg=none'
   -- cmd 'autocmd ColorScheme * hi SignifySignAdd gui=none guifg=#aadb67 guibg=none'
