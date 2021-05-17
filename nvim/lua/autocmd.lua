@@ -6,9 +6,12 @@ local autocmd = {}
 function autocmd.setup()
   cmd("augroup PrettierOnSave")
   cmd("autocmd!")
-  -- cmd [[autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat]]
   cmd [[autocmd BufWritePre *.js Neoformat]]
-  -- cmd [[autocmd FileType javascript setlocal formatprg=prettier\ --stdin]]
+  cmd("augroup END")
+
+  cmd("augroup NoAutoComments")
+  cmd("autocmd!")
+  cmd [[au BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]
   cmd("augroup END")
 end
 

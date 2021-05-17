@@ -34,6 +34,7 @@ paq {'junegunn/fzf', hook = fn['fzf#install']}
 paq {'junegunn/fzf.vim'}
 paq {'unblevable/quick-scope'}
 paq {'sbdchd/neoformat'}
+paq {'mattn/emmet-vim'}
 
 -- Plugins Setup
 require'plugins/colorizer'
@@ -49,4 +50,5 @@ require'plugins/treesitter'
 require'plugins/yankhighlight'
 require'plugins/prettier'
 require'plugins/vim-commentary'
+require'plugins/emmet'
 
