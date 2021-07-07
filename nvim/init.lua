@@ -1,54 +1,62 @@
-local cmd = vim.cmd
-local fn = vim.fn
+-- Leader key -> " "  spacebar
+--
+-- In general, it's a good idea to set this early in your config, because otherwise
+-- if you have any mappings you set BEFORE doing this, they will be set to the OLD
+-- leader.
+-- vim.g.mapleader = "<space>"
+vim.g.mapleader = " "
 
--- Load options
-require'options'
+-- load plugins
+require "hotrod.plugins"
 
--- Load mappings
-require'mappings'.setup()
+-- Neovim options
+require'hotrod.options'
 
--- Load autocmd
-require'autocmd'.setup()
+-- LSP config
+require'hotrod.lsp'
 
--- Plugins
-cmd 'packadd paq-nvim'
-local paq = require('paq-nvim').paq
-paq{'savq/paq-nvim', opt=true}
-paq {'justinmk/vim-dirvish'}
-paq {'tpope/vim-fugitive'}
-paq {'tpope/vim-rhubarb'}
-paq {'tpope/vim-eunuch'}
-paq {'tpope/vim-commentary'}
-paq {'tpope/vim-unimpaired'}
-paq {'tpope/vim-repeat'}
-paq {'tpope/vim-surround'}
-paq {'mhinz/vim-signify'}
-paq {'haishanh/night-owl.vim'}
-paq {'Yggdroot/indentline'}
-paq {'nvim-treesitter/nvim-treesitter', hook = ':TSUpdate'}
-paq {'neovim/nvim-lspconfig'}
-paq {'nvim-lua/completion-nvim'}
-paq {'styled-components/vim-styled-components', branch = 'main'}
-paq {'norcalli/nvim-colorizer.lua'}
-paq {'junegunn/fzf', hook = fn['fzf#install']}
-paq {'junegunn/fzf.vim'}
-paq {'unblevable/quick-scope'}
-paq {'sbdchd/neoformat'}
-paq {'mattn/emmet-vim'}
+-- Telescope config
+require'hotrod.telescope'
+require'hotrod.telescope.mappings'
 
--- Plugins Setup
-require'plugins/colorizer'
-require'plugins/fzf'
-require'plugins/indentline'
-require'plugins/help' -- opens help in new tab
-require'plugins/lspconfig'
-require'plugins/nightowl'
-require'plugins/signify'
-require'plugins/statusline'
-require'plugins/terminal'
-require'plugins/treesitter'
-require'plugins/yankhighlight'
-require'plugins/prettier'
-require'plugins/vim-commentary'
-require'plugins/emmet'
+-- Treesitter config
+require'hotrod.treesitter'
 
+-- Apply mappings
+require'hotrod.mappings'.setup()
+
+-- Run autocmds
+require'hotrod.autocmd'.setup()
+
+-- Create statusline
+require'hotrod.statusline'
+
+-- Load Colorizer
+require'colorizer'.setup()
+
+-- Configure indentline
+require'hotrod.indentline'
+
+-- Add theme and highlights
+require'hotrod.nightowl'
+
+-- Configure signify
+require'hotrod.signify'
+
+-- Configure emmet
+require'hotrod.emmet'
+
+-- Load Smooth Scroll
+require('neoscroll').setup()
+
+-- configure harpoon
+require'hotrod.harpoon'
+
+-- configure git-worktree
+require'hotrod.git-worktree'
+
+-- load autopairs
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
+require'hotrod.npairs'

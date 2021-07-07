@@ -1,9 +1,7 @@
-local g = vim.g
-local api = vim.api
 local fn = vim.fn
 local mappings = {}
 local nmap = function(lhs, rhs)
-  api.nvim_set_keymap('n', lhs, rhs, {noremap = true, silent = false})
+  vim.api.nvim_set_keymap('n', lhs, rhs, {noremap = true, silent = false})
 end
 
 function win_move(key)
@@ -25,12 +23,12 @@ function win_move(key)
 end
 
 function mappings.setup()
-  -- leader
-  g.mapleader = " "
   nmap('<Leader>;', ':')
   nmap('<Leader>q', ':quit<CR>')
   nmap('<Leader>s', ':update<CR>')
-  nmap('<Leader>r', ':luafile %<CR>')
+  -- nmap('<Leader>r', ':luafile %<CR>')
+  -- TODO: move configurations to hotrod.lua to be able to easily reload configuration with <F4>
+  -- nmap('<F4>', ':lua package.loaded.plugins = nil<cr> :luafile ~/.config/nvim/init.lua<cr>')
 
   -- general
   nmap('Q', 'gq')
@@ -58,6 +56,10 @@ function mappings.setup()
   nmap('<Leader>ws', '<C-w>s')
   nmap('<Leader>w,', '20<C-w><')
   nmap('<Leader>w.', '20<C-w>>')
+  nmap('<Leader>fp', [[:lua require("harpoon.term").sendCommand(1, "tmux2.sh\n"); require("harpoon.term").gotoTerminal(1)<CR>]])
+
+  -- terminal escape
+  vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], {noremap = true, silent = false})
 end
 
 return mappings
