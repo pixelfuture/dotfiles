@@ -3,6 +3,9 @@ local mappings = {}
 local nmap = function(lhs, rhs)
   vim.api.nvim_set_keymap('n', lhs, rhs, {noremap = true, silent = false})
 end
+local vmap = function(lhs, rhs)
+  vim.api.nvim_set_keymap('v', lhs, rhs, {noremap = true, silent = false})
+end
 
 function win_move(key)
   local curwin = fn.winnr()
@@ -35,6 +38,13 @@ function mappings.setup()
   nmap('H', '^')
   nmap('L', '$')
   nmap('Y', 'y$')
+
+  -- move lines
+  vmap('J', [[:m '>+1<CR>gv=gv]])
+  vmap('K', [[:m '<-2<CR>gv=gv]])
+
+  -- special copy/yank commands
+  vmap('<Leader>p', '"_dP')
 
   -- edit file
   nmap('<Leader>ez', ':e ~/.zshrc')

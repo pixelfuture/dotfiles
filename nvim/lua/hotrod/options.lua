@@ -5,7 +5,7 @@ opt.termguicolors = true
 
 -- Behaviors
 opt.number         = true                        -- show number on current line
-opt.relativenumber = true                        -- relative numbers for easier navigation
+-- opt.relativenumber = true                        -- relative numbers for easier navigation
 opt.cursorline     = true                        -- highlight current line
 opt.signcolumn     = 'yes'                       -- sign column always open
 opt.completeopt     = 'menuone,noinsert,noselect' -- no preview Scratch window during completion

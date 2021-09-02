@@ -25,6 +25,7 @@ map("<leader>f'", "<cmd>lua require('telescope.builtin').marks()<cr>")
 map("<leader>fm", "<cmd>lua require('telescope.builtin').keymaps()<cr>")
 map("<leader>fH", "<cmd>lua require('telescope.builtin').highlights()<cr>")
 map("<leader>fe", "<cmd>lua require('hotrod.telescope').file_browser()<cr>")
+map("<leader>fq", "<cmd>lua require('telescope.builtin').quickfix()<cr>")
 
 -- Git
 map("<leader>gs", "<cmd>lua require('telescope.builtin').git_status()<cr>")

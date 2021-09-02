@@ -44,6 +44,9 @@ return require'paq-nvim'{
   -- emmet support - double commas
   'mattn/emmet-vim';
 
+  -- Prettier
+  {'prettier/vim-prettier', run='yarn install'};
+
   -- Telescope
   'nvim-lua/popup.nvim';
   'nvim-lua/plenary.nvim';
@@ -64,4 +67,11 @@ return require'paq-nvim'{
 
   -- autopairs
   'windwp/nvim-autopairs';
+
+  -- zen mode
+  'folke/zen-mode.nvim';
+  -- 'folke/twilight.nvim'
+
+  -- display package latest version
+  'vuki656/package-info.nvim'
 }
