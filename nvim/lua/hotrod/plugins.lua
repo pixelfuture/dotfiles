@@ -71,7 +71,4 @@ return require'paq-nvim'{
   -- zen mode
   'folke/zen-mode.nvim';
   -- 'folke/twilight.nvim'
-
-  -- display package latest version
-  'vuki656/package-info.nvim'
 }
