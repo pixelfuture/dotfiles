@@ -56,7 +56,7 @@ require'config.mappings'
 require'config.statusline'
 require"config.telescope"
 require'config.treesitter'
-require'config.autocmd'
+require'config.autocmd'.setup()
 require'config.indentline'
 require'config.signify'
 

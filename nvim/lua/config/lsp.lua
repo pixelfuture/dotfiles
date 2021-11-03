@@ -8,6 +8,7 @@ lsp_status.config({
 })
 
 local common_on_attach = function(client, bufnr)
+  require 'illuminate'.on_attach(client)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -34,7 +35,7 @@ local common_on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-	buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+	-- buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 	buf_set_keymap("n", "<leader>o", [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 
@@ -42,6 +43,9 @@ local common_on_attach = function(client, bufnr)
 	lsp_signature.on_attach({
 		floating_window_above_cur_line = true,
 	})
+  vim.api.nvim_command [[ hi def link LspReferenceText ColorColumn ]]
+  vim.api.nvim_command [[ hi def link LspReferenceWrite ColorColumn ]]
+  vim.api.nvim_command [[ hi def link LspReferenceRead ColorColumn ]]
 end
 
 lsp_installer.on_server_ready(function(server)
