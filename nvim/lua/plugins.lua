@@ -60,7 +60,13 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter' -- treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Additional textobjects for treesitter
   use 'JoosepAlviste/nvim-ts-context-commentstring' -- Change comment string (For React)
-  use 'haishanh/night-owl.vim' -- night owl theme
+  -- use 'haishanh/night-owl.vim' -- night owl theme
+  use {
+    'haishanh/night-owl.vim',
+    config = function ()
+      vim.cmd 'colorscheme night-owl'
+    end
+  }
   use {
     "norcalli/nvim-colorizer.lua",
     config = function()
