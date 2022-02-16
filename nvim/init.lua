@@ -11,7 +11,6 @@ opt.cursorline     = true                        -- highlight current line
 opt.signcolumn     = 'yes'                       -- sign column always open
 opt.completeopt     = 'menuone,noinsert,noselect' -- no preview Scratch window during completion
 opt.swapfile        = false                       -- swap files annoy me
-opt.inccommand      = 'split'                     -- preview %s commands in a split window as I type
 opt.hidden          = true                        -- move away from unsaved buffers
 opt.updatetime      = 100                         -- stop typing quickly
 opt.undofile        = true                        -- keep track of my 'undo's between sessions
@@ -51,7 +50,6 @@ vim.g.ale_fixers = {
 }
 
 require "plugins"
-require'config.nightowl'
 require'config.mappings'
 require'config.statusline'
 require"config.telescope"
@@ -59,6 +57,8 @@ require'config.treesitter'
 require'config.autocmd'.setup()
 require'config.indentline'
 require'config.signify'
+require'config.nightowl'.setup()
+require'config.fidget'
 
 -- load autopairs
 -- require('nvim-autopairs').setup({

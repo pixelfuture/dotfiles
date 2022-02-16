@@ -36,6 +36,7 @@ require('packer').startup(function()
 			"kosayoda/nvim-lightbulb",
 			"weilbith/nvim-code-action-menu",
       "RRethy/vim-illuminate",
+      {"windwp/nvim-autopairs", config = [[require"config.autopairs"]] },
 		},
 		config = function()
 			require("config.lsp")
@@ -46,13 +47,12 @@ require('packer').startup(function()
   use 'dense-analysis/ale' -- prettier
   use 'ggandor/lightspeed.nvim' -- sneak-like navigation
   use 'wbthomason/packer.nvim' -- package manager
-  use 'haishanh/night-owl.vim' -- night owl theme
   use 'justinmk/vim-dirvish' -- navigation
   use 'mhinz/vim-signify' -- git diff sybmols in the gutter
   use 'lukas-reineke/indent-blankline.nvim' -- display vertical lines at each indentation
   use 'tpope/vim-fugitive' -- git commands in nvim
   use 'tpope/vim-rhubarb' -- Gbrowse opens Github URLs
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
+  -- use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'tpope/vim-eunuch' -- Move, Delete, Rename, Mkdir, Chmod, SudoWrite
   use 'tpope/vim-unimpaired' -- easy navigation pairs like [q for quickfix window
   use 'tpope/vim-repeat' -- helps repeat actions for stuff (not sure if I need this)
@@ -60,20 +60,7 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter' -- treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Additional textobjects for treesitter
   use 'JoosepAlviste/nvim-ts-context-commentstring' -- Change comment string (For React)
-  use({
-		-- Auto close brackets etc (with treesitter support)
-		"windwp/nvim-autopairs",
-		after = { "nvim-cmp" },
-		config = function()
-			require("nvim-autopairs").setup({ check_ts = true })
-			require("nvim-autopairs.completion.cmp").setup({
-				map_cr = true,
-				map_complete = true,
-				auto_select = false,
-			})
-		end,
-	})
-  -- colors for CSS hashes
+  use 'haishanh/night-owl.vim' -- night owl theme
   use {
     "norcalli/nvim-colorizer.lua",
     config = function()
@@ -106,4 +93,17 @@ require('packer').startup(function()
       require("which-key").setup{}
     end
   }
+  use 'shime/vim-livedown'
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+  use {
+    'mrjones2014/dash.nvim',
+    run = 'make install'
+  }
+  use 'haya14busa/is.vim'
+  use 'j-hui/fidget.nvim'
 end)

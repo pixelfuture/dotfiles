@@ -35,7 +35,6 @@ nmap('<Leader>s', ':update<CR>')
 nmap('Q', 'gq')
 nmap('H', '^')
 nmap('L', '$')
-nmap('Y', 'y$')
 
 -- move lines
 vmap('J', [[:m '>+1<CR>gv=gv]])
@@ -67,3 +66,6 @@ nmap('<Leader>w.', '20<C-w>>')
 
 -- terminal escape
 vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], {noremap = true, silent = false})
+
+-- markdown
+nmap('gm', '<cmd>LivedownToggle<CR>')
