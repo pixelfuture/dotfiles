@@ -1,62 +1,67 @@
--- Leader key -> " "  spacebar
---
--- In general, it's a good idea to set this early in your config, because otherwise
--- if you have any mappings you set BEFORE doing this, they will be set to the OLD
--- leader.
--- vim.g.mapleader = "<space>"
+local opt = vim.opt
 vim.g.mapleader = " "
 
--- load plugins
-require "hotrod.plugins"
+-- Essentials
+opt.termguicolors = true
 
--- Neovim options
-require'hotrod.options'
+-- Behaviors
+opt.number         = true                        -- show number on current line
+opt.relativenumber = true                        -- relative numbers for easier navigation
+opt.cursorline     = true                        -- highlight current line
+opt.signcolumn     = 'yes'                       -- sign column always open
+opt.completeopt     = 'menuone,noinsert,noselect' -- no preview Scratch window during completion
+opt.swapfile        = false                       -- swap files annoy me
+opt.hidden          = true                        -- move away from unsaved buffers
+opt.updatetime      = 100                         -- stop typing quickly
+opt.undofile        = true                        -- keep track of my 'undo's between sessions
+opt.mouse           = 'a'                         -- use mouse
+opt.clipboard       = 'unnamed'                   -- use clipboard
 
--- LSP config
-require'hotrod.lsp'
+-- Look and Feel
+opt.scrolloff       = 3                           -- scroll offset
+opt.sidescrolloff   = 15                          -- side scroll offset
+opt.sidescrolloff   = 15                          -- side scroll offset
+opt.fillchars       = 'vert:│'                    -- vertical line
+opt.foldlevelstart  = 99                          -- all folds open
+opt.splitright      = true                        -- vsplit to the right
+opt.splitbelow      = true                        -- split to the bottom
+opt.wrap            = false                       -- no wrap
+opt.pumheight       = 10                          -- maximum 10 lines in popup menu
+opt.pumblend        = 17                          -- transparent popup
+opt.shiftwidth      = 2                           -- number of spaces to indent
+opt.tabstop         = 2                           -- number of spaces to indent with <Tab>
+opt.softtabstop     = 2                           -- number of spaces to indent with <Tab> or <BS>
+opt.expandtab       = true                        -- use spaces (not tabs)
+opt.shortmess       = 'aoOtTIc'                   -- customize shortmess
 
--- Telescope config
-require'hotrod.telescope'
-require'hotrod.telescope.mappings'
+-- Searching
+vim.cmd[[set path=src/**,tests/**]]                 -- search src and tests root folders
+opt.suffixesadd     = '.js,.scss'                 -- help resolve gf command
+opt.ignorecase      = true                        -- case insensitive search
+opt.smartcase       = true                        -- case sensitivity on when caps used
+opt.wildignore      = '*/node_modules/*,package-lock.json,*.snap,*/__snapshots__/*'
+opt.wildmode = { "longest", "list", "full" }
 
--- Treesitter config
-require'hotrod.treesitter'
+-- ale configuration
+vim.g.ale_fix_on_save = 1
+vim.g.ale_fixers = {
+  javascript = { 'prettier' },
+  typescript = { 'eslint' },
+}
 
--- Apply mappings
-require'hotrod.mappings'.setup()
-
--- Run autocmds
-require'hotrod.autocmd'.setup()
-
--- Create statusline
-require'hotrod.statusline'
-
--- Load Colorizer
-require'colorizer'.setup()
-
--- Configure indentline
-require'hotrod.indentline'
-
--- Add theme and highlights
-require'hotrod.nightowl'
-
--- Configure signify
-require'hotrod.signify'
-
--- Configure emmet
-require'hotrod.emmet'
-
--- Load Smooth Scroll
-require('neoscroll').setup()
-
--- configure harpoon
-require'hotrod.harpoon'
-
--- configure git-worktree
-require'hotrod.git-worktree'
+require "plugins"
+require'config.mappings'
+require'config.statusline'
+require"config.telescope"
+require'config.treesitter'
+require'config.autocmd'.setup()
+require'config.indentline'
+require'config.signify'
+require'config.nightowl'.setup()
+require'config.fidget'
 
 -- load autopairs
-require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" , "vim" },
-})
-require'hotrod.npairs'
+-- require('nvim-autopairs').setup({
+--   disable_filetype = { "TelescopePrompt" , "vim" },
+-- })
+-- require'hotrod.npairs'

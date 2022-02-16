@@ -1,6 +1,7 @@
 local cmd = vim.cmd
+local nightowl = {}
 
-local setup = function()
+function nightowl.setup()
   cmd 'colorscheme night-owl'
   cmd 'augroup nightowl'
   cmd 'autocmd!'
@@ -12,4 +13,4 @@ local setup = function()
   cmd('augroup END')
 end
 
-setup()
+return nightowl
