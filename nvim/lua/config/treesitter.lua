@@ -1,7 +1,7 @@
 local cmd = vim.cmd
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
-  ensure_installed = 'maintained', 
+  ensure_installed = { "bash", "c", "css", "go", "graphql", "html", "javascript", "lua", "markdown", "prisma", "python", "rust", "scss", "typescript", "yaml", "tsx", "vim"},
   highlight = {enable = true}, -- this enables treesitter
   incremental_selection = {
     enable = true,

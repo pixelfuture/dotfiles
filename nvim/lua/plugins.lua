@@ -112,4 +112,7 @@ require('packer').startup(function()
   }
   use 'haya14busa/is.vim'
   use 'j-hui/fidget.nvim'
+   -- markdown
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use {'pantharshit00/vim-prisma'}
 end)
