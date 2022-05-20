@@ -35,7 +35,7 @@ opt.expandtab       = true                        -- use spaces (not tabs)
 opt.shortmess       = 'aoOtTIc'                   -- customize shortmess
 
 -- Searching
--- vim.cmd[[set path=src/**,tests/**]]                 -- search src and tests root folders
+vim.cmd[[set path=src/**,tests/**]]                 -- search src and tests root folders
 opt.suffixesadd     = '.js,.scss'                 -- help resolve gf command
 opt.ignorecase      = true                        -- case insensitive search
 opt.smartcase       = true                        -- case sensitivity on when caps used
