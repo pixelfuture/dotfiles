@@ -8,6 +8,6 @@ nullls.setup({
         nullls.builtins.formatting.prettier,
         nullls.builtins.formatting.stylua,
         nullls.builtins.diagnostics.eslint,
-        nullls.builtins.completion.spell,
+        -- nullls.builtins.completion.spell,
     },
 })
