@@ -32,3 +32,4 @@ vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*.git/COMMIT_EDITMSG" }, 
     end
   end
 end })
+
