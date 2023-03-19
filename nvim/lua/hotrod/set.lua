@@ -1,5 +1,5 @@
 vim.opt.number = true -- show number on current line
-vim.opt.relativenumber = true -- relative numbers for easier navigation
+-- vim.opt.relativenumber = true -- relative numbers for easier navigation
 
 vim.opt.shiftwidth = 2 -- number of spaces to indent
 vim.opt.tabstop = 2 -- number of spaces to indent with <Tab>
@@ -33,3 +33,4 @@ vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymor
 vim.opt.laststatus = 3 -- global statusline
 
 vim.opt.updatetime = 100 -- faster updatetime
+vim.opt.path = "src/**,tests/**" -- search src and tests root folders

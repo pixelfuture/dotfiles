@@ -1,12 +1,12 @@
-local lsp = require('lsp-zero')
+local lsp = require("lsp-zero")
 
-lsp.preset('recommended')
+lsp.preset("recommended")
 
 lsp.ensure_installed({
-	'tsserver',
-	'eslint',
-	'sumneko_lua',
-	'rust_analyzer',
+	"tsserver",
+	"eslint",
+	"lua_ls",
+	"rust_analyzer",
 })
 
 -- mappings: https://github.com/VonHeikemen/lsp-zero.nvim

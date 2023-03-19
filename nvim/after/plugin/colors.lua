@@ -6,5 +6,5 @@ require("catppuccin").setup({
 -- setup must be called before loading
 vim.cmd.colorscheme("catppuccin")
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2e2e3f" })
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })

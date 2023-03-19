@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
 
 	-- git
 	use("tpope/vim-fugitive")
+	use("lewis6991/gitsigns.nvim")
 
 	-- lsp
 	use({
@@ -100,7 +101,16 @@ return require("packer").startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- manages nohl in a smart way
-	use("haya14busa/is.vim")
+	-- use("haya14busa/is.vim")
+
+	-- improve search
+	use("kevinhwang91/nvim-hlslens")
+
+	-- ui enhancements to input and select
+	use("stevearc/dressing.nvim")
+
+	-- markdown preview with :Glow
+	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
