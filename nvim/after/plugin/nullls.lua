@@ -27,12 +27,19 @@ local on_attach = function(client, bufnr)
 	end
 end
 
+-- setup typescript lsp
+local typescript_status, typescript = pcall(require, "typescript")
+if not typescript_status then
+	return
+end
+
 nullls.setup({
 	on_attach = on_attach,
 	sources = {
 		nullls.builtins.formatting.prettier,
 		nullls.builtins.formatting.stylua,
 		nullls.builtins.diagnostics.eslint,
+		require("typescript.extensions.null-ls.code-actions"),
 		-- nullls.builtins.completion.spell,
 	},
 })

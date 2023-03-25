@@ -1,4 +1,9 @@
-require("hlslens").setup({
+local status, hlslens = pcall(require, "hlslens")
+if not status then
+  return
+end
+
+hlslens.setup({
 	auto_enable = {
 		description = [[Enable nvim-hlslens automatically]],
 		default = true,
