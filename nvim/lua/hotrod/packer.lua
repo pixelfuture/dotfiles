@@ -40,28 +40,35 @@ return require("packer").startup(function(use)
 
 	-- git
 	use("tpope/vim-fugitive")
-	use("lewis6991/gitsigns.nvim")
+	-- use("lewis6991/gitsigns.nvim")
 
 	-- lsp
 	use({
-		"VonHeikemen/lsp-zero.nvim",
+		"williamboman/mason.nvim",
 		requires = {
-			-- LSP Support
 			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
+			{ "jose-elias-alvarez/typescript.nvim" },
+		},
+	})
 
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
+	-- Autocompletion
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
 			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
 
 			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
+			{ "L3MON4D3/LuaSnip", tag = "v1.2.1", run = "make install_jsregexp" },
 			{ "rafamadriz/friendly-snippets" },
+
+			-- Adds pictograms
+			{ "onsails/lspkind.nvim" },
 		},
 	})
 

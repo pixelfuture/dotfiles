@@ -1,5 +1,5 @@
 vim.opt.number = true -- show number on current line
--- vim.opt.relativenumber = true -- relative numbers for easier navigation
+vim.opt.relativenumber = true -- relative numbers for easier navigation
 
 vim.opt.shiftwidth = 2 -- number of spaces to indent
 vim.opt.tabstop = 2 -- number of spaces to indent with <Tab>

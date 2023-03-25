@@ -1,10 +1,15 @@
+local status, telescope = pcall(require, "telescope")
+if not status then
+  return
+end
+
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 
 -- load fzf extension
-require("telescope").load_extension("fzf")
+telescope.load_extension("fzf")
 
-require("telescope").setup({
+telescope.setup({
 	extensions = {
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
