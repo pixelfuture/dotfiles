@@ -28,7 +28,7 @@ vim.opt.foldlevelstart = 99 -- all folds open
 
 vim.opt.cursorline = true -- highlight current line
 
-vim.opt.cmdheight = 0 -- number of screenlines to use for command line
+vim.opt.cmdheight = 1 -- number of screenlines to use for command line
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.opt.laststatus = 3 -- global statusline
 

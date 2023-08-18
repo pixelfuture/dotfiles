@@ -147,4 +147,10 @@ lazy.setup({
 
 	-- markdown preview with :Glow
 	{ "toppair/peek.nvim", build = "deno task --quiet build:fast" },
+
+	-- tmux configuration
+	"christoomey/vim-tmux-navigator",
+	"alanfortlink/blackjack.nvim",
 })
+
+require("hotrod.lsp")

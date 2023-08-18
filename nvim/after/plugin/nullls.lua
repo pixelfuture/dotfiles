@@ -36,9 +36,13 @@ end
 nullls.setup({
 	on_attach = on_attach,
 	sources = {
-		nullls.builtins.formatting.prettier,
+		-- nullls.builtins.formatting.prettier,
+		nullls.builtins.formatting.prettierd,
 		nullls.builtins.formatting.stylua,
-		nullls.builtins.diagnostics.eslint,
+		-- nullls.builtins.diagnostics.eslint,
+		nullls.builtins.diagnostics.eslint_d,
+		nullls.builtins.code_actions.eslint_d,
+		nullls.builtins.code_actions.refactoring,
 		require("typescript.extensions.null-ls.code-actions"),
 		-- nullls.builtins.completion.spell,
 	},
