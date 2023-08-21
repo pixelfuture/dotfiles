@@ -1,5 +1,0 @@
-require("hotrod.lsp.mason")
-require("hotrod.lsp.completion")
-require("hotrod.lsp.jsonls")
-require("hotrod.lsp.typescript")
-require("hotrod.lsp.mappings")
