@@ -14,7 +14,7 @@ require "tokyonight".setup({
     sidebars = "transparent", -- style for sidebars, see below
     floats = "transparent", -- style for floating windows
   },
-  sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  -- sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
   --- You can override specific color groups to use other groups or a hex color
   --- function will be called with a ColorScheme table
   ---@param colors ColorScheme
@@ -24,7 +24,12 @@ require "tokyonight".setup({
   --- function will be called with a Highlights and ColorScheme table
   ---@param highlights Highlights
   ---@param colors ColorScheme
-  on_highlights = function(highlights, colors) end,
+  on_highlights = function(highlights, colors)
+    highlights.NoiceVirtualText = {
+      fg = colors.warning,
+      -- bg = colors.bg_dark,
+    }
+  end,
 })
 vim.cmd([[colorscheme tokyonight]])
 

@@ -60,14 +60,20 @@ local config = {
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    {
+      name = 'luasnip',
+      entry_filter = function()
+        local context = require("cmp.config.context")
+        return not context.in_treesitter_capture("string") and not context.in_syntax_group("String")
+      end,
+    },
   }, {
     { name = 'buffer' },
   }),
   view = {
     entries = { name = 'custom', selection_order = 'near_cursor' },
     -- entries = { name = 'native', selection_order = 'near_cursor' }, -- I don't notice a difference
-    -- entries = { name = 'wildmenu', separator = ' | ' }, -- weird but if can work
+    -- entries = { name = 'wildmenu', separator = ' | ' }, -- weird but it can work
   },
   window = {
     completion = cmp.config.window.bordered(),

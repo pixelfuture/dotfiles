@@ -30,6 +30,8 @@ vim.opt.laststatus = 3 -- global statusline
 vim.opt.path = "src/**,tests/**" -- search src and tests root folders
 
 vim.opt.wrap = false -- no wrap
+vim.opt.scrolloff = 3 -- scroll offset
+vim.opt.sidescrolloff = 8 -- side scroll offset
 
 -- New
 vim.opt.title = true -- the title of the window will be set to the value of 'titlestring'
@@ -51,8 +53,6 @@ vim.g.netrw_fastbrowse = 0
 
 -- Currently disabled. Maybe they will make a comeback
 -- For more options go to :help options
--- vim.opt.scrolloff = 3 -- scroll offset
--- vim.opt.sidescrolloff = 8 -- side scroll offset
 -- vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 -- vim.opt.updatetime = 100 -- faster updatetime
 

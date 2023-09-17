@@ -148,6 +148,9 @@ require("lazy").setup({
   "folke/null-ls.nvim",
   "MunifTanjim/prettier.nvim",
 
+  -- tmux compatibility
+  "christoomey/vim-tmux-navigator",
+
   -- UI enhancements
   {
     'stevearc/dressing.nvim',

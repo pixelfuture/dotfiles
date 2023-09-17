@@ -1,4 +1,3 @@
-local fn = vim.fn
 local keymap = vim.keymap
 
 keymap.set("n", "<Leader>q", ":quit<CR>", { desc = "quit file" })
@@ -25,6 +24,7 @@ keymap.set("v", ">", ">gv", { desc="improve indenting in visual mode", silent = 
 keymap.set("v", "p", '"_dP', { desc = "improve pasting in visual mode" })
 
 -- window management
+-- local fn = vim.fn
 -- local function win_move(key)
 -- 	local curwin = fn.winnr()
 -- 	fn.execute("wincmd " .. key)
