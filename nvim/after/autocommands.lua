@@ -45,3 +45,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		end
 	end,
 })
+
+-- hack to get folds to work. Telescope bug. https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1745374486
+vim.api.nvim_create_augroup("BufEnter", {
+	callback = function()
+		if vim.opt.foldmethod:get() == "expr" then
+			vim.schedule(function()
+				vim.opt.foldmethod = "expr"
+			end)
+		end
+	end,
+})

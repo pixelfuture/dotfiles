@@ -28,8 +28,13 @@ o.signcolumn = "yes"
 o.splitright = true
 o.splitbelow = true
 
--- folding
-o.foldlevelstart = 99
+-- folding https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
+o.foldlevel = 99
+o.foldnestmax = 4
+-- o.foldlevelstart = 1
+o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+o.foldtext = "" -- uses treesitter to highlight folded text
+o.foldmethod = "expr"
 
 -- highlight current line
 o.cursorline = true
