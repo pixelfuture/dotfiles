@@ -1,4 +1,4 @@
--- highlight on yank
+-- highlight on yank 😁
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = group,
 	callback = function()

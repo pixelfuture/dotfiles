@@ -87,6 +87,7 @@ return {
 						return not context.in_treesitter_capture("string") and not context.in_syntax_group("String")
 					end,
 				},
+				{ name = "emoji" },
 			}, {
 				{ name = "buffer" },
 			}),
