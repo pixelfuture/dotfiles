@@ -46,21 +46,24 @@ return {
 				end, "[G]oto local [D]eclaration")
 				nmap("<Leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 				nmap("<Leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
+				nmap("gr", function()
+					builtin.lsp_references({ show_line = false })
+				end, "[G]oto [R]eferences")
 				nmap("<Leader>i", function()
 					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 				end, "Enable [i]nlay hints")
 				local client = vim.lsp.get_client_by_id(ev.data.client_id)
-				if client.server_capabilities.documentHighlightProvider then
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-						buffer = ev.buf,
-						callback = vim.lsp.buf.document_highlight,
-					})
-					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-						buffer = ev.buf,
-						callback = vim.lsp.buf.clear_references,
-					})
-				end
+				-- local capabilities = client.resolved_capabilities
+				-- if capabilities.document_highlight then
+				-- 	vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				-- 		buffer = ev.buf,
+				-- 		callback = vim.lsp.buf.document_highlight,
+				-- 	})
+				-- 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				-- 		buffer = ev.buf,
+				-- 		callback = vim.lsp.buf.clear_references,
+				-- 	})
+				-- end
 			end,
 		})
 
@@ -75,7 +78,7 @@ return {
 			-- end
 		end
 
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			handlers = handlers,
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -104,6 +107,15 @@ return {
 						includeInlayEnumMemberValueHints = true,
 					},
 				},
+			},
+			autostart = true,
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
 			},
 		})
 
