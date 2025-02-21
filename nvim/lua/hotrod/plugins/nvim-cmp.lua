@@ -1,6 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	enabled = false,
 	dependencies = {
 		"hrsh7th/cmp-buffer", -- buffer word completion
 		"hrsh7th/cmp-nvim-lsp", -- LSP completion
