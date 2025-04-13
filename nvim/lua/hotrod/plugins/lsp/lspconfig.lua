@@ -5,7 +5,7 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local keymap = vim.keymap
-		local builtin = require("telescope.builtin")
+		-- local builtin = require("telescope.builtin")
 		local border = {
 			{ "╭", "FloatBorder" },
 			{ "─", "FloatBorder" },
@@ -34,18 +34,18 @@ return {
 					end
 					keymap.set("n", keys, func, { buffer = ev.buf, desc = desc })
 				end
-				nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+				-- nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 				-- nmap("gi", builtin.lsp_implementations, "[G]oto [I]mplementation")
-				nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
-				imap("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
-				nmap("gD", function()
-					vim.fn.searchdecl(vim.fn.expand("<cword>"))
-				end, "[G]oto local [D]eclaration")
-				nmap("<Leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				-- nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
+				-- imap("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
+				-- nmap("gD", function()
+				-- 	vim.fn.searchdecl(vim.fn.expand("<cword>"))
+				-- end, "[G]oto local [D]eclaration")
+				-- nmap("<Leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 				nmap("<Leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				nmap("gr", function()
-					builtin.lsp_references({ show_line = false })
-				end, "[G]oto [R]eferences")
+				-- nmap("gr", function()
+				-- 	builtin.lsp_references({ show_line = false })
+				-- end, "[G]oto [R]eferences")
 				nmap("<Leader>i", function()
 					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 				end, "Enable [i]nlay hints")
@@ -137,6 +137,10 @@ return {
 		})
 
 		lspconfig.eslint.setup({
+			flags = {
+				allow_incremental_sync = false,
+				debounce_text_changes = 1000,
+			},
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				vim.api.nvim_create_autocmd("BufWritePre", {

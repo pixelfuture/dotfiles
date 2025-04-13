@@ -8,6 +8,7 @@
 -- <c-f> browse modified files
 return {
 	"nvim-telescope/telescope-github.nvim",
+	enabled = false,
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope-github.nvim" },

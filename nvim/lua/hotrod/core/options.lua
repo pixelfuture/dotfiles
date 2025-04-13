@@ -46,7 +46,7 @@ o.laststatus = 3
 o.wrap = false
 
 -- scroll offset
-o.scrolloff = 6
+o.scrolloff = 2
 o.sidescrolloff = 8
 
 -- title of window set to value of 'titlestring'
@@ -57,6 +57,8 @@ o.inccommand = "split"
 
 -- increase update time
 o.updatetime = 100
+
+o.background = "dark"
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
