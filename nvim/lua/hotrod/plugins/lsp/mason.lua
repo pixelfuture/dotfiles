@@ -29,6 +29,7 @@ return {
 				"emmet_ls",
 				"pyright",
 				"graphql",
+				"somesass_ls",
 			},
 			automatic_installation = true,
 		})

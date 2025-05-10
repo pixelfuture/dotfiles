@@ -70,3 +70,5 @@ g.netrw_browse_split = 0
 g.netrw_banner = 0
 g.netrw_silent = 1
 g.netrw_fastbrowse = 0
+
+o.winborder = "rounded"
