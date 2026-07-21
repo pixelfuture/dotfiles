@@ -238,7 +238,7 @@ require('oil').setup {}
 vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = 'Open parent directory' })
 
 -- Treesitter config
-vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', branch = 'main' } }
+vim.pack.add { gh 'nvim-treesitter/nvim-treesitter' }
 local treesitter = require 'nvim-treesitter'
 local parsers = {
   'bash',
@@ -259,19 +259,51 @@ treesitter.setup {
   ensure_installed = parsers,
   highlight = { enable = true },
 }
+require('nvim-treesitter').install(parsers)
+
+local function treesitter_try_attach(buf, language)
+  if not vim.treesitter.language.add(language) then return end
+  vim.treesitter.start(buf, language)
+  -- https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
+  vim.wo[0][0].foldlevel = 99
+  vim.wo[0][0].foldnestmax = 4
+  vim.wo[0][0].foldtext = ''
+  vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  vim.wo[0][0].foldmethod = 'expr'
+
+  local has_indent_query = vim.treesitter.query.get(language, 'indents') ~= nil
+
+  if has_indent_query then vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" end
+end
+
+local available_parsers = require('nvim-treesitter').get_available()
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'lua', 'typescriptreact', 'typescript', 'tsx' },
   callback = function(args)
-    vim.treesitter.start(args.buf)
-    -- https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
-    vim.wo[0][0].foldlevel = 99
-    vim.wo[0][0].foldnestmax = 4
-    vim.wo[0][0].foldtext = ''
-    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo[0][0].foldmethod = 'expr'
-    vim.bo.indentexpr = 'v:lua.require"nvim-treesitter".indentexpr()'
+    local buf, filetype = args.buf, args.match
+
+    local language = vim.treesitter.language.get_lang(filetype)
+    if not language then return end
+
+    local installed_parsers = require('nvim-treesitter').get_installed 'parsers'
+
+    if vim.tbl_contains(installed_parsers, language) then
+      -- Enable the parser if it is already installed
+      treesitter_try_attach(buf, language)
+    elseif vim.tbl_contains(available_parsers, language) then
+      -- If a parser is available in `nvim-treesitter`, auto-install it and enable it after the installation
+      require('nvim-treesitter').install(language):await(function() treesitter_try_attach(buf, language) end)
+    else
+      -- Try to enable treesitter features in case the parser exists but it is not available from `nvim-treesitter`
+      treesitter_try_attach(buf, language)
+    end
   end,
 })
+
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = { 'lua', 'typescriptreact', 'typescript', 'tsx' },
+--   callback = function(args) vim.treesitter.start(args.buf) end,
+-- })
+
 vim.pack.add { gh 'windwp/nvim-ts-autotag' }
 require('nvim-ts-autotag').setup()
 
