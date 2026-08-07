@@ -60,7 +60,7 @@ vim.diagnostic.config {
   },
 }
 map('grd', vim.diagnostic.open_float, 'Open diagnostic float')
-map('<leader>q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list')
+-- map('<leader>q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list')
 
 -- Terminal
 map('<Esc><Esc>', '<C-\\><C-n>', 'Exit terminal mode', 't')
@@ -84,6 +84,7 @@ map('s,', '20<C-w><', 'Descrease window width by 20')
 map('s.', '20<C-w>>', 'Increase window width by 20')
 map('s+', '10<C-w>+', 'Increase window height by 10')
 map('s-', '10<C-w>-', 'Decrease window height by 10')
+map('<leader>q', '<C-w>q', 'Close window')
 
 -- Escape in insert mode
 map('jk', '<Esc>', 'Exit insert mode with jk', 'i')

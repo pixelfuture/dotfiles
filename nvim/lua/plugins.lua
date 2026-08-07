@@ -25,11 +25,25 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 local function gh(repo) return 'https://github.com/' .. repo end
 
--- common icon pack
-vim.pack.add { gh 'nvim-tree/nvim-web-devicons' }
+vim.pack.add {
+  'https://github.com/nvim-tree/nvim-web-devicons', -- common icon pack
+  'https://github.com/folke/which-key.nvim', -- identify key maps as you type
+  'https://github.com/folke/tokyonight.nvim', -- theme
+  'https://github.com/lewis6991/gitsigns.nvim', -- git status on number column
+  'https://github.com/tpope/vim-fugitive', -- useful git features
+  'https://github.com/rachartier/tiny-cmdline.nvim', -- display command line in the middle of screen
+  'https://github.com/neovim/nvim-lspconfig', -- list of LSP configurations
+  'https://github.com/mason-org/mason.nvim', -- Automatically install LSPs and related tools to stdpath for Neovim
+  'https://github.com/mason-org/mason-lspconfig.nvim', -- bridges mason and nvim-lspconfig
+  'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim', -- Uses Mason to install third-party tools
+  'https://github.com/stevearc/conform.nvim', -- Formatter config - Prettier
+  'https://github.com/stevearc/oil.nvim', -- Oil config
+  'https://github.com/nvim-treesitter/nvim-treesitter', -- enable treesitter
+  'https://github.com/windwp/nvim-ts-autotag', -- use treesitter to autoclose and autorename html tags
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.0' }, -- Automplete
+  'https://github.com/ibhagwan/fzf-lua', -- Fuzzy Finder
+}
 
--- identify key maps as you type
-vim.pack.add { gh 'folke/which-key.nvim' }
 require('which-key').setup {
   delay = 0,
   icons = { mappings = true },
@@ -39,13 +53,9 @@ require('which-key').setup {
   },
 }
 
--- theme
-vim.pack.add { gh 'folke/tokyonight.nvim' }
 require('tokyonight').setup {}
 vim.cmd.colorscheme 'tokyonight-night'
 
--- git status on number column along with other useful git features
-vim.pack.add { gh 'lewis6991/gitsigns.nvim', gh 'tpope/vim-fugitive' }
 require('gitsigns').setup {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
@@ -89,11 +99,6 @@ require('gitsigns').setup {
   end,
 }
 
--- vim.pack.add { gh 'j-hui/fidget.nvim' }
--- require('fidget').setup {}
-
--- display command line in the middle of screen
-vim.pack.add { gh 'rachartier/tiny-cmdline.nvim' }
 require('tiny-cmdline').setup {}
 
 -- lsp config
@@ -106,11 +111,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-    map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+    map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     -- map('<C-s>', vim.lsp.buf.signature_help, 'Display Signature Help', 'i')
     -- map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
     -- map('gra', vim.lsp.bufqcode_action, '[G]oto Code [A]ction', { 'n', 'x' })
-    -- map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     -- map('grx', vim.lsp.codelens.run, '[G]oto [R]un Codelens')
     -- map('g0', vim.lsp.buf.document_symbol, '[G]oto Document Symbol')
 
@@ -188,13 +192,6 @@ local servers = {
   },
 }
 
-vim.pack.add {
-  gh 'neovim/nvim-lspconfig',
-  gh 'mason-org/mason.nvim',
-  gh 'mason-org/mason-lspconfig.nvim',
-  gh 'WhoIsSethDaniel/mason-tool-installer.nvim',
-}
-
 require('mason').setup {}
 
 local ensure_installed = vim.tbl_keys(servers or {})
@@ -207,14 +204,14 @@ for name, server in pairs(servers) do
   vim.lsp.enable(name)
 end
 
--- Formatter config - Prettier
-vim.pack.add { gh 'stevearc/conform.nvim' }
 require('conform').setup {
   notify_on_error = false,
   format_on_save = function(bufnr)
     local enabled_filetypes = {
       lua = true,
       javascript = true,
+      css = true,
+      typescriptreact = true,
     }
     if enabled_filetypes[vim.bo[bufnr].filetype] then
       return { timeout_ms = 500 }
@@ -227,18 +224,17 @@ require('conform').setup {
   },
   formatters_by_ft = {
     javascript = { 'prettierd', 'prettier', stop_after_first = true },
+    typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+    css = { 'prettierd', 'prettier', stop_after_first = true },
     lua = { 'stylua' },
   },
 }
 -- vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
 
--- Oil config
-vim.pack.add { gh 'stevearc/oil.nvim' }
 require('oil').setup {}
 vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = 'Open parent directory' })
 
 -- Treesitter config
-vim.pack.add { gh 'nvim-treesitter/nvim-treesitter' }
 local treesitter = require 'nvim-treesitter'
 local parsers = {
   'bash',
@@ -299,20 +295,26 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { 'lua', 'typescriptreact', 'typescript', 'tsx' },
---   callback = function(args) vim.treesitter.start(args.buf) end,
--- })
-
-vim.pack.add { gh 'windwp/nvim-ts-autotag' }
 require('nvim-ts-autotag').setup()
 
--- Automplete
-vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.0' } }
-require('blink.cmp').setup()
+require('blink.cmp').setup {
+  completion = {
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 500,
+    },
+    menu = {
+      draw = {
+        columns = {
+          { 'label', 'label_description', gap = 1 },
+          { 'kind_icon', 'kind' },
+        },
+      },
+    },
+  },
+}
 
--- Fuzzy Finder
-vim.pack.add { gh 'ibhagwan/fzf-lua' }
+-- Fuzzy Search Configuration
 require('fzf-lua').setup()
 vim.keymap.set('n', '<leader>ff', require('fzf-lua').files, { desc = '[F]ind [F]iles' })
 vim.keymap.set('n', '<leader>,', require('fzf-lua').buffers, { desc = '[F]ind [B]uffers' })

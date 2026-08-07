@@ -1,49 +1,41 @@
-local o = vim.o
-
 -- Display line numbers
-o.number = true
+vim.o.number = true
 -- o.relativenumber = true
 
 -- Use mouse
-o.mouse = 'a'
+vim.o.mouse = 'a'
 
--- Indent by 2 spaces
-o.shiftwidth = 2
-o.tabstop = 2
-o.softtabstop = 2
-o.expandtab = true
-
--- Don't show the mode, since status line already takes care of that
-o.showmode = false
+-- The status line already shows the mode
+vim.o.showmode = false
 
 -- Enable OS clipboard
-vim.schedule(function() o.clipboard = 'unnamedplus' end)
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
--- Disables swap file
-o.swapfile = false
+-- Enable break indent
+vim.o.breakindent = true
 
 -- Enables undo/redo even after file is closed
-o.undofile = true
+vim.o.undofile = true
 
 -- Set case-insensitive search UNLESS \C or one or more captial letter in the search term
-o.ignorecase = true
-o.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-o.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- :help updatetime
-o.updatetime = 100
+vim.o.updatetime = 250
 
 -- Decrease mapped sequence wait time
-o.timeoutlen = 300
+vim.o.timeoutlen = 300
 
 -- Configure how new splits should be opened
-o.splitright = true
-o.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Display whitespace characters in the editor
-o.list = true
+vim.o.list = true
 vim.opt.listchars = {
   tab = '│ ',
   trail = '·',
@@ -51,36 +43,30 @@ vim.opt.listchars = {
 }
 
 -- Preview substitutions live, as you type
-o.inccommand = 'split'
+vim.o.inccommand = 'split'
 
 -- Show which line your cursor is on
-o.cursorline = true
+vim.o.cursorline = true
 
 -- Raise a dialog box asking if you wish to save the current file(s) when closing
-o.confirm = true
+vim.o.confirm = true
 
 -- Title of window set to value of 'titlestring'
-o.title = true
+vim.o.title = true
 
 -- No wrap
-o.wrap = false
+vim.o.wrap = false
 
 -- rounded borders
-o.winborder = 'rounded'
+vim.o.winborder = 'rounded'
 
-o.cmdheight = 0
+vim.o.cmdheight = 0
 
--- new autocomplete
-o.autocomplete = true
-o.pumborder = 'rounded'
-o.pummaxwidth = 40
-o.completeopt = 'menu,menuone,noselect'
+-- Indent by 2 spaces
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.expandtab = true
 
--- Previous settings
--- o.scrolloff = 2
--- o.sidescrolloff = 8
--- o.background = dark
--- undercurl
--- vim.cmd([[let &t_Cs = "\e[4:3m"]])
--- vim.cmd([[let &t_Ce = "\e[4:0m"]])
--- o.path = "src/**,tests/**"
+-- Disables swap file
+vim.o.swapfile = false
