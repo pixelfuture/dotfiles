@@ -16,6 +16,9 @@ map('p', [["_dP]], 'Paste over selection without losing yanked text', 'x')
 -- Replace word
 map('<leader>rn', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], 'Replace word cursor')
 
+-- copy current file name
+map('<leader>cf', '<cmd>let @+ = expand("%")<CR>', 'Copy current file name (relative)')
+
 -- chmod file so it is executable
 map('<leader>X', '<cmd>!chmod +x %<cr>', 'Makes file executable')
 
