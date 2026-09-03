@@ -142,8 +142,8 @@ vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
     if vim.fn.isdirectory '.git' ~= 0 then
       local branch = vim.fn.system "git branch --show-current | tr -d '\n'"
-      if string.find(branch, 'qppfe%-%d%d%d%d') then
-        local prefix = string.match(branch, 'qppfe%-%d%d%d%d')
+      if string.find(branch, 'qppfe%-%d%d%d%d%d') then
+        local prefix = string.match(branch, 'qppfe%-%d%d%d%d%d')
         if prefix then vim.api.nvim_command('normal i' .. string.upper(prefix) .. ': ') end
       end
     end
